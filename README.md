@@ -31,7 +31,7 @@ Projet consistant à fournir un ensemble d'outils, de documents et une progressi
 
 ## Comment utiliser cette ressource? 🤔
 
-Je pars ici du présupposé que vous débutez votre apprentissage de Git. Si vous avez déjà quelques connaissances sur le sujet vous jugerez inutiles:
+Je pars ici du présupposé que vous débutez votre apprentissage de Git. Si vous avez déjà quelques connaissances sur le sujet sautez les étapes que vous jugerez inutiles:
 
 0. Installez git via le site officiel: https://git-scm.com/
 1. Clonez ce projet à l'aide de la commande: git clone _urlDeCeProjet_
