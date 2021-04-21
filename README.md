@@ -48,21 +48,21 @@ Voici quelques défis qui boosteront votre niveau de maîtrise:
 **Niveau 1**
 - [ ] Clonez ce projet
 - [ ] Réalisez votre premier commit
-- [ ] Ignorez un fichier du suivi des modifications
-- [ ] Supprimez un fichier du suivi des modifications mais pas de votre dossier
+- [ ] Ignorez un fichier que vous avenez de créer du suivi des modifications
+- [ ] Supprimez un fichier déjà suivi par Git du suivi des modifications (mais pas de votre dossier!)
 - [ ] Annulez des modifications en effectuant un revert
 
 
 **Niveau 2**
-- [ ] Créez votre premier branche
+- [ ] Créez votre première branche
 - [ ] Changez de branche pour la première fois
 - [ ] Codez sur une branche de développement, faites un commit, revenez sur votre branche principale puis fusionnez votre branche de développement dans la branche principale
 
 
 **Niveau 3**
-- [ ] Créez un dépôt distant
+- [ ] Créez un dépôt distant (sur GitHub par exemple)
 - [ ] Faites en sorte que votre projet cloné "GitLearn" suive ce dépôt distant
-- [ ] En vous associant avec quelqu'un créez votre premier conflit _volontairement_
+- [ ] En vous associant avec quelqu'un (ou en utilisant GitHub) créez votre premier conflit _volontairement_
 - [ ] Réussissez votre première résolution de conflit
 
 <hr/>
