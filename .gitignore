@@ -1,1 +1,11 @@
 docs/cahier_des_charges/*
+
+# Latex:
+*.aux
+*.synctex.gz
+*.log
+*.out
+*.nav
+*.snm
+*.toc
+*.vrb

@@ -1,0 +1,188 @@
+\documentclass{beamer}
+\usepackage{config}
+
+%Information to be included in the title page:
+\title[Git seul en local mono-branche]{Git : mode d'emploi pour un usage seul, sans dépôt distant, avec une à plusieurs branches}
+\author{Florian Legendre}
+\institute{Université de Poitiers}
+\date{Année 2020 - 2021}
+\logo{\includegraphics[scale=0.1]{images/UP.png}}
+
+
+%%% ============================================================= %%%
+%%% ====================== Début des diapos ===================== %%%
+%%% ============================================================= %%%
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+\frametitle{Table of Contents}
+\tableofcontents[hideallsubsections]
+\end{frame}
+
+
+%% --------------------- %%
+%%        SECTION        %%
+%% --------------------- %%
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Table of Contents}
+    \tableofcontents[sectionstyle=show/hide,subsectionstyle=show/show/hide]
+  \end{frame}
+}
+\section{Gérer les branches locales}
+
+% Subsection:
+\subsection{Sur quelle branche suis-je?}
+\begin{frame}[fragile]
+Il est important de connaître la branche sur laquelle on travaille. Pour cela, il suffit d'entrer dans le terminal "git branch" sans argument:
+\frametitle{Commandes: git branch}
+\begin{mdframed}[style=Bash]
+    \begin{lstlisting}[style=Bash, caption={Exemple d'affichage de la commande "git branch"}]
+crex@crex:~/projects/avlTreesL3Project$ git branch
+  dev
+* main
+    \end{lstlisting}
+\end{mdframed}
+\end{frame}
+
+\subsection{Créer/Supprimer une branche}
+\begin{frame}[fragile]
+\frametitle{Commandes: git branch [-d] <nom\_branche>}
+Pour créer une branche on entre "git branch" suivi du nom de la branche qu'on souhaite donner. L'option -d permet au contraire de supprimer la branche désigné par le nom donné en paramètre:
+
+\begin{mdframed}[style=Bash]
+    \begin{lstlisting}[style=Bash, caption={Exemple de création et de suppression de branche}]
+crex@crex:~/projects/avlTreesL3Project$ git branch
+  dev
+* main
+crex@crex:~/projects/avlTreesL3Project$ git branch exp
+crex@crex:~/projects/avlTreesL3Project$ git branch
+  dev
+  exp
+* main
+crex@crex:~/projects/avlTreesL3Project$ git branch -d exp
+Deleted branch exp (was 9985cdb).
+crex@crex:~/projects/avlTreesL3Project$ git branch
+  dev
+* main
+    \end{lstlisting}
+\end{mdframed}
+
+\end{frame}
+
+\subsection{Changer de branche}
+\begin{frame}[fragile]
+\frametitle{Commandes: git checkout <nom\_branche>}
+
+Pour changer de branch on entre "git checkout" suivi du nom de la branche:
+\smallskip
+
+\begin{mdframed}[style=Bash]
+    \begin{lstlisting}[style=Bash, caption={Exemple de création et de suppression de branche}]
+crex@crex:~/projects/avlTreesL3Project$ git branch
+  dev
+* main
+crex@crex:~/projects/avlTreesL3Project$ git checkout dev
+Switched to branch 'dev'
+crex@crex:~/projects/avlTreesL3Project$ git branch
+* dev
+  main
+    \end{lstlisting}
+\end{mdframed}
+\medskip
+
+\underline{Remarque:} Les fichiers sont automatiquement changés pour correspondre à l'état de la version la plus récente de la branche sur laquelle on bascule.\\
+\smallskip
+\end{frame}
+
+\begin{frame}
+\frametitle{Commandes: git checkout <nom\_branche>}
+\textbf{ATTENTION:} Le changement de branche vous sera refusé si des modifications ont été détectées mais n'ont pas encore été "commitées". Deux solutions s'offrent alors à vous: 1) commiter vos changements puis changer de branche ou 2) utiliser la remise dont nous détaillerons le fonctionnement ultérieurement.\\
+\end{frame}
+
+\subsection{Fusionner des branches}
+\begin{frame}
+\frametitle{Commandes: git merge <nom\_branche>}
+La commande "git merge" suivi du nom de la branche permet d'incorporer les changements d'une branche dans une autre branche.\\
+\medskip
+
+\textbf{ATTENTION:} git merge <nom\_branche> incorpore les changements de la branche désignée dans la branche courante.\\
+\smallskip
+Ce qui signifie, par exemple dans le cas où vous voulez incorporer les changements d'une branche de développement dans une branche "main" ou "master" que vous devez d'abord changer de branche pour aller sur la branche "main" ou "master" puis exécuter la commande.
+\end{frame}
+
+
+
+%% --------------------- %%
+%%        SECTION        %%
+%% --------------------- %%
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Table of Contents}
+    \tableofcontents[sectionstyle=show/hide,subsectionstyle=show/show/hide]
+  \end{frame}
+}
+\section{Utiliser la remise}
+
+% Subsection:
+\subsection{Découverte et Gestion de la remise}
+\begin{frame}
+\frametitle{Intérêt de la remise}
+La remise permet de revenir au dernier commit tout en sauvegardant votre travail en cours. Ceci est très utile dans certains cas, par exemple:
+\begin{itemize}
+    \item Quand on veut changer de branche rapidement sans "commiter" des modifications en cours
+    \item Quand on a commencé un travail mais qu'on s'est trompé de branche
+    \item Et probablement d'autres cas auxquels je n'ai pas encore pensé...
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Commandes: git stash [pop/list/drop]}
+
+La commande "git stash" fonctionne de la manière suivante:
+\begin{itemize}
+    \item git stash + aucun argument : Revient au dernier commit en sauvegardant le travail en cours
+    \item git stash list : Liste les différents WIP ("Work In Progress") sauvegardés dans la remise
+    \item git stash apply <numéro> : Applique les modifications de <numéro> de la remise
+    \item git stash pop : Applique les modifications du dernier stash de la remise puis le supprime
+    \item git stash drop <numéro> : Retire le stash <numéro> de la remise
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Commandes: git stash [pop/list/drop]}
+
+\begin{mdframed}[style=Bash]
+    \begin{lstlisting}[style=Bash, caption={Exemple de fonctionnement du stash}]
+crex@crex:~/projects/test$ git st
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   test.txt
+	
+crex@crex:~/projects/test$ git stash
+Saved working directory and index state WIP on master: 1a0b2eb Début du suivi de test.txt
+
+crex@crex:~/projects/test$ git stash list
+stash@{0}: WIP on master: 1a0b2eb Début du suivi de test.txt
+
+crex@crex:~/projects/test$ git stash apply 0
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   test.txt
+    \end{lstlisting}
+\end{mdframed}
+\end{frame}
+
+
+\end{document}
