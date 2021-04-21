@@ -1,4 +1,5 @@
 docs/cahier_des_charges/*
+docs/diapos_formation/build
 
 # Latex:
 *.aux

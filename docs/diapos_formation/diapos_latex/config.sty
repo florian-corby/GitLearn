@@ -1,7 +1,7 @@
 % ===================================================== %
 % ===================  PREAMBULE ====================== %
 % ===================================================== %
-\ProvidesFile{config}
+\ProvidesPackage{config}
 \usepackage[
     compress,
     %minimal,
@@ -37,7 +37,7 @@
 \usepackage[bottom]{footmisc}
 \usepackage[font=small,labelfont=bf]{caption}
 
-\graphicspath{{/images/}}
+\graphicspath{{./images/}{../icones/}}
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{mauve}{rgb}{0.58,0,0.82}
@@ -177,10 +177,10 @@
 \usepackage[framemethod=tikz]{mdframed}
 \mdfdefinestyle{Bash}{
 backgroundcolor=black!100,
-innerbottommargin=-21pt,
+innerbottommargin=-22.5pt,
 }
 \lstdefinestyle{Bash}{
-	basicstyle=\color{white},
+	basicstyle=\tiny\color{white},
     backgroundcolor=\color{black},
     breakatwhitespace=false,
     breaklines=true,
@@ -240,6 +240,7 @@ innerbottommargin=-21pt,
     stringstyle=\color{yellow},
     tabsize=4,
 }
+
 
 \lstdefinestyle{Java}{
     backgroundcolor=\color{darkWhite},
@@ -489,3 +490,4 @@ innerbottommargin=-21pt,
     \ttfamily
     \ifnum#1<10 0\fi#1 |%
 }
+\endinput
