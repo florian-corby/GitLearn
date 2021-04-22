@@ -23,6 +23,8 @@
 \end{frame}
 
 
+
+
 %% --------------------- %%
 %%        SECTION        %%
 %% --------------------- %%
@@ -33,98 +35,110 @@
     \tableofcontents[sectionstyle=show/hide,subsectionstyle=show/show/hide]
   \end{frame}
 }
-\section{Inviter des collaborateurs}
 
-\begin{frame}
-\frametitle{Gérer les droits de mise à jour}
-Il y a trois scénarios possibles, qui dépendent de la configuration du ou des dépôts distants.
+\section{Rappels sur les conflits d'édition}
+
+% Subsection:
+\subsection{Quelques remarques préliminaires}
+\begin{frame}{Git n'est pas GitHub!}
+
+À l'instar des branches où je considérais que vous aviez un dépôt distant et où je vous  montrais comment configurer vos branches locales/distantes depuis Git, ici je vais vous présenter une dernière notion de Git qui est indépendante du choix de dépôt distant que vous ferez.\\
 \medskip
 
-\underline{Premier scénario:}\\
-\smallskip
-Vous êtes indiqué comme \textbf{collaborateur} sur la branche distante. En tant que collaborateur vous pouvez "pusher" les changements que vous voulez sans restriction ! Sauf si le projet fait partie d'une organisation...\\
-\medskip
-\textbf{ATTENTION pour les chefs de projet:} Cela nécessite d'avoir une très grande confiance en ses collaborateurs. En cas de doute une des solutions alors d'avoir une branche distante de développement
+Cette notion est celle de conflit d'éditions. Bien que le mot "conflit" puisse faire peur il s'agit de quelque-chose de tout à fait ordinaire quand on travaille à plusieurs sur un même projet. Git simplifie grandement la gestion de ces conflits.\\
+
 \end{frame}
 
-\begin{frame}
-\frametitle{Gérer les droits de mise à jour}
-
+% Subsection:
+\subsection{Rappel de la notion de conflits d'édition}
+\begin{frame}{Rappel du problème}
 \begin{center}
-\begin{figure}[h!]
-    \includegraphics[scale=0.15]{images/droits_push/collaborator.png}
-    \caption{Définir des collaborateurs sous GitHub}
-\end{figure}
+    \includegraphics[scale=0.4]{lastScenario/lastScenario_init.png}
 \end{center}
-
 \end{frame}
 
-\begin{frame}
-\frametitle{Gérer les droits de mise à jour}
-
-\underline{Second scénario:}\\
-\smallskip
-
-\begin{enumerate}
-    \item Vous avez "\textbf{forké}" (càd copié) sous Github le projet d'une personne.
-    \item Vous avez ensuite cloné ce fork.
-    \item Vous avez travaillé sur ce clone et "pushé" vos projets sur votre fork distant.
-    \item Vous pouvez ensuite faire un pull request directement sur l'interface GitHub.
-\end{enumerate}
-
-\normalsize
+\begin{frame}{Rappel du problème}
+\begin{center}
+    \includegraphics[scale=0.4]{lastScenario/lastScenario_conflict1.png}
+\end{center}
 \end{frame}
 
-\begin{frame}
-\frametitle{Gérer les droits de mise à jour}
-\begin{figure}[h!]
-    \includegraphics[scale=0.15]{images/droits_push/fork.png}
-    \caption{Forker sous GitHub}
-\end{figure}
+\begin{frame}{Rappel du problème}
+\begin{center}
+    \includegraphics[scale=0.4]{lastScenario/lastScenario_conflict2.png}
+\end{center}
 \end{frame}
 
-\begin{frame}
-\frametitle{Gérer les droits de mise à jour}
-\begin{figure}[h!]
-    \includegraphics[scale=0.15]{images/droits_push/pull_request.png}
-    \caption{Faire un pull request sous GitHub}
-\end{figure}
+\begin{frame}{Rappel du problème}
+\begin{center}
+    \includegraphics[scale=0.4]{lastScenario/lastScenario_conflict3.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Rappel de la solution "à la main"}
+\begin{center}
+    \includegraphics[scale=0.4]{lastScenario/lastScenario_pullpush1.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Rappel de la solution "à la main"}
+\begin{center}
+    \includegraphics[scale=0.4]{lastScenario/lastScenario_pullpush2.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Rappel de la solution "à la main"}
+\begin{center}
+    \includegraphics[scale=0.4]{lastScenario/lastScenario_pullpush3.png}
+\end{center}
 \end{frame}
 
 
-\begin{frame}
-\frametitle{Gérer les droits de mise à jour}
+% Subsection:
+\subsection{Quel est le rôle de Git dans la gestion de ces conflits?}
+\begin{frame}{Rôle de Git}
 
-\underline{Dernier scénario:}\\
-\smallskip
-Vous avez \textbf{cloné} le projet d'une personne. Vous avez ensuite travaillé dessus et vous vous rendez compte que vous souhaiteriez faire part de vos modifications à l'auteur...\\
+Git ne peut pas décider à votre place de ce qui doit être supprimé ou gardé! Ou alors nous perdons tous notre travail car les ordinateurs peuvent coder...\\
 \medskip
 
-\begin{enumerate}
-    \item Comme précédemment vous forkez
-    \item Vous ajoutez une branche distante à votre clone: "git remote add <nom> <urlDeVotreDepot>" ou, plus brutal: "git remote rm origin" suivi de "git remote add origin <urlDeVotreDepot>"
-    \item Vous pushez vos changements sur ce fork
-    \item Vous faites un pull request comme précédemment
-\end{enumerate}
-\end{frame}
-
-
-%% --------------------- %%
-%%        SECTION        %%
-%% --------------------- %%
-\AtBeginSection[]
-{
-  \begin{frame}
-    \frametitle{Table of Contents}
-    \tableofcontents[sectionstyle=show/hide,subsectionstyle=show/show/hide]
-  \end{frame}
-}
-\section{Gestion de conflits entre différentes versions}
-\begin{frame}{Rappel de la notion de conflit de versions}
+Mais Git peut vous indiquer dans quels fichiers et à quelles lignes vos deux versions sont en conflit. 
     
 \end{frame}
 
-\begin{frame}{Un conflit sur Git}
+
+%% --------------------- %%
+%%        SECTION        %%
+%% --------------------- %%
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Table of Contents}
+    \tableofcontents[sectionstyle=show/hide,subsectionstyle=show/show/hide]
+  \end{frame}
+}
+
+\section{Gestion des conflits d'édition avec Git}
+
+
+% Subsection:
+\subsection{Présentation d'un conflit détecté par Git}
+\begin{frame}[fragile]{Un conflit sur Git}
+Un exemple illustrant la détection automatique de conflits d'édition entre plusieurs collaborateurs:
+\begin{mdframed}[style=Bash]
+\begin{lstlisting}[style=Bash, caption={Exemple de détection automatique de conflit d'édition}]
+<<<<<<< HEAD
+VisuRepereMokka(markers.Potence,Rpotence_R0,c3d,'Rpotence_R0')
+=======
+VisuRepereMokla(markers.Potence,Rpotence_R0,c3d,'Rpotence_R0')
+>>>>>>> travail_de_monOuma_collegue
+\end{lstlisting}
+\end{mdframed}
+\end{frame}
+
+
+% Subsection:
+\subsection{Résolution d'un conflit d'édition}
+\begin{frame}{Résolution d'un conflit d'édition}
     
 \end{frame}
 
