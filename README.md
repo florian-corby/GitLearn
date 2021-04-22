@@ -1,7 +1,6 @@
 # GitLearn
 
-[![Join the chat at https://gitter.im/AutoDiLab/GitLearn](https://badges.gitter.im/AutoDiLab/GitLearn.svg)](https://gitter.im/AutoDiLab/GitLearn?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
+<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/Chuxclub/GitLearn?style=plastic"> <a href="https://chuxclub.github.io/GitLearn/"><img alt="Page web d'exercices" src="https://img.shields.io/badge/GitLearn.io-Exercices%20d'accompagnement-blue"></a> [![Join the chat at https://gitter.im/AutoDiLab/GitLearn](https://badges.gitter.im/AutoDiLab/GitLearn.svg)](https://gitter.im/AutoDiLab/GitLearn?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 Projet consistant à fournir un ensemble d'outils, de documents et une progression parmi ces outils et documents pour une acquisition rapide de Git
 
 

@@ -110,7 +110,7 @@ crex@crex:~/projects/avlTreesL3Project$ git branch
 La commande "git merge" suivi du nom de la branche permet d'incorporer les changements d'une branche dans une autre branche.\\
 \medskip
 
-\textbf{ATTENTION:} git merge <nom\_branche> incorpore les changements de la branche désignée dans la branche courante.\\
+\textbf{ATTENTION:} git merge <nom\_branche> incorpore les changements de la branche désignée \underline{\textbf{dans la branche courante}}.\\
 \smallskip
 Ce qui signifie, par exemple dans le cas où vous voulez incorporer les changements d'une branche de développement dans une branche "main" ou "master" que vous devez d'abord changer de branche pour aller sur la branche "main" ou "master" puis exécuter la commande.
 \end{frame}
@@ -182,6 +182,14 @@ Changes not staged for commit:
 	modified:   test.txt
     \end{lstlisting}
 \end{mdframed}
+\end{frame}
+
+
+\section{La boucle de travail local multibranches}
+\begin{frame}{La boucle de travail local multibranches}
+\begin{center}
+	\includegraphics[scale=0.3]{gitCommandFlow/gitCommandFlow_multilocalLoop.png}
+\end{center}
 \end{frame}
 
 
