@@ -55,7 +55,6 @@ Si la branche distante est plus avancée que votre branche locale vous ne pourre
 \begin{center}
 	\includegraphics[scale=0.3]{interdictionPush1.png}
 \end{center}
-
 \end{frame}
 
 
@@ -63,6 +62,18 @@ Si la branche distante est plus avancée que votre branche locale vous ne pourre
 % Subsection:
 \subsection{Comment la résoudre?}
 \begin{frame}{Résolution avec git pull}
+En lisant bien le message d'erreur précédent vous remarquerez que Git vous suggère tout simplement de d'abord fusionner les changements de la branche distante dans votre branche locale:
+\begin{center}
+	\includegraphics[scale=0.3]{interdictionPush2.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Résolution avec git pull}
+Puis de retenter votre mise à jour de la branche distante:
+\begin{center}
+	\includegraphics[scale=0.3]{interdictionPush3.png}
+\end{center}
+L'idée étant que vous ayiez le même historique des versions que vos collaborateurs!
 \end{frame}
 
 
@@ -199,7 +210,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 \end{frame}
 
 \begin{frame}{Un conflit détecté par Git}
-Normalement à chaque fois que vous mettez à jour votre branche locale en faisant un \textit{git pull}, git crée un commit qui enregistre cette mise à jour (comme ça il est facile de défaire une mise à jour avec un \textit{git revert <id>}).\\
+Normalement à chaque fois que vous mettez à jour votre branche locale en faisant un \textit{git pull}, Git crée un commit qui enregistre cette mise à jour (comme ça il est facile de défaire une mise à jour avec un \textit{git revert <id>}).\\
 \medskip
 
 Cependant, quand Git détecte un conflit il attend que vous ayiez résolu ce-dernier avant de faire un commit de la mise à jour.
@@ -211,6 +222,8 @@ Lors d'un conflit Git \textbf{\underline{écrit dans}} le fichier conflictuel co
 \begin{center}
 	\includegraphics[scale=0.3]{gestionConflits1.png}
 \end{center}
+
+\underline{\textbf{IMPORTANT:}} Ne marquez donc pas un fichier comme étant résolu avant d'avoir réédité ce fichier!
 \end{frame}
 
 \begin{frame}[fragile]{Un conflit détecté par Git}
