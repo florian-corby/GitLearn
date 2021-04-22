@@ -23,6 +23,31 @@
 \end{frame}
 
 
+%% --------------------- %%
+%%        SECTION        %%
+%% --------------------- %%
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Table of Contents}
+    \tableofcontents[sectionstyle=show/hide,subsectionstyle=show/show/hide]
+  \end{frame}
+}
+
+\section{Les interdictions de push}
+
+% Subsection:
+\subsection{Quelques remarques préliminaires}
+\begin{frame}{Git n'est pas GitHub!}
+
+À l'instar des branches où je considérais que vous aviez un dépôt distant et où je vous  montrais comment configurer vos branches locales/distantes depuis Git, ici je vais vous présenter deux dernières notions de Git qui sont indépendantes du choix de dépôt distant que vous ferez.\\
+\medskip
+
+Ces notions sont celles d'interdictions de push et de conflits d'édition. Bien que le mot "conflit" puisse faire peur il s'agit de quelque-chose de tout à fait ordinaire quand on travaille à plusieurs sur un même projet. Git simplifie grandement la gestion de ces conflits.\\
+
+\end{frame}
+
+
 
 
 %% --------------------- %%
@@ -37,17 +62,6 @@
 }
 
 \section{Rappels sur les conflits d'édition}
-
-% Subsection:
-\subsection{Quelques remarques préliminaires}
-\begin{frame}{Git n'est pas GitHub!}
-
-À l'instar des branches où je considérais que vous aviez un dépôt distant et où je vous  montrais comment configurer vos branches locales/distantes depuis Git, ici je vais vous présenter une dernière notion de Git qui est indépendante du choix de dépôt distant que vous ferez.\\
-\medskip
-
-Cette notion est celle de conflit d'éditions. Bien que le mot "conflit" puisse faire peur il s'agit de quelque-chose de tout à fait ordinaire quand on travaille à plusieurs sur un même projet. Git simplifie grandement la gestion de ces conflits.\\
-
-\end{frame}
 
 % Subsection:
 \subsection{Rappel de la notion de conflits d'édition}
@@ -211,11 +225,23 @@ Je peux faire ce que je veux lors d'une édition de conflits: garder tout ou par
 Une fois que vous avez fini de choisir ce que vous vouliez garder ou non (discutez-en avec la personne concernée avant!) vous pouvez ajouter les fichiers au staging avec \textit{git add <nom\_fichier>} afin de préparer le commit que Git a suspendu en vous attendant:
 
 \begin{mdframed}[style=Bash]
-\begin{lstlisting}[style=Bash]
+\begin{lstlisting}[style=Bash, caption=Fin de résolution du conflit]
+crex@crex:~/projects/GitLearn(dev)$ git add -A
+crex@crex:~/projects/GitLearn(dev)$ git status
+On branch dev
+Your branch and 'origin/dev' have diverged,
+and have 2 and 1 different commits each, respectively.
+  (use "git pull" to merge the remote branch into yours)
 
+All conflicts fixed but you are still merging.
+  (use "git commit" to conclude merge)
+
+Changes to be committed:
+	modified:   codes/test.txt
+crex@crex:~/projects/GitLearn(dev)$ git commit -am "Conflit résolu"
+[dev 313203f] Conflit résolu
 \end{lstlisting}
 \end{mdframed}
-
 \end{frame}
 
 
