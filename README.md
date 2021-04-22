@@ -1,4 +1,7 @@
 # GitLearn
+
+[![Join the chat at https://gitter.im/AutoDiLab/GitLearn](https://badges.gitter.im/AutoDiLab/GitLearn.svg)](https://gitter.im/AutoDiLab/GitLearn?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Projet consistant à fournir un ensemble d'outils, de documents et une progression parmi ces outils et documents pour une acquisition rapide de Git
 
 
