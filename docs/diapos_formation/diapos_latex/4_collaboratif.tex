@@ -142,12 +142,35 @@ Automatic merge failed; fix conflicts and then commit the result.
 \end{mdframed}
 \end{frame}
 
+\begin{frame}[fragile]{Un conflit détecté par Git}
+
+Pour savoir quels fichiers sont en conflits vous pouvez aussi utiliser la commande \textit{git status} qui vous renseigne en plus sur la marche à suivre:
+\begin{mdframed}[style=Bash]
+\begin{lstlisting}[style=Bash, caption=Les fichiers en conflit indiqués par git status]
+crex@crex:~/projects/GitLearn(dev)$ git status
+On branch dev
+Your branch and 'origin/dev' have diverged,
+and have 2 and 1 different commits each, respectively.
+  (use "git pull" to merge the remote branch into yours)
+
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+	both modified:   codes/test.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+\end{lstlisting}
+\end{mdframed}
+\end{frame}
+
 \begin{frame}{Un conflit détecté par Git}
 Normalement à chaque fois que vous mettez à jour votre branche locale en faisant un \textit{git pull}, git crée un commit qui enregistre cette mise à jour (comme ça il est facile de défaire une mise à jour avec un \textit{git revert <id>}).\\
 \medskip
 
 Cependant, quand Git détecte un conflit il attend que vous ayiez résolu ce-dernier avant de faire un commit de la mise à jour.
-
 \end{frame}
 
 \begin{frame}[fragile]{Un conflit détecté par Git}
@@ -182,6 +205,17 @@ Je peux faire ce que je veux lors d'une édition de conflits: garder tout ou par
 	\vspace{0.5cm}
 	\includegraphics[scale=0.3]{gestionConflits4.png}
 \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Vous faites la résolution}
+Une fois que vous avez fini de choisir ce que vous vouliez garder ou non (discutez-en avec la personne concernée avant!) vous pouvez ajouter les fichiers au staging avec \textit{git add <nom\_fichier>} afin de préparer le commit que Git a suspendu en vous attendant:
+
+\begin{mdframed}[style=Bash]
+\begin{lstlisting}[style=Bash]
+
+\end{lstlisting}
+\end{mdframed}
+
 \end{frame}
 
 
