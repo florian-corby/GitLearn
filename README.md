@@ -48,7 +48,7 @@ Voici quelques défis qui boosteront votre niveau de maîtrise:
 **Niveau 1**
 - [ ] Clonez ce projet
 - [ ] Réalisez votre premier commit
-- [ ] Ignorez un fichier que vous avenez de créer du suivi des modifications
+- [ ] Ignorez un fichier que vous venez de créer du suivi des modifications
 - [ ] Supprimez un fichier déjà suivi par Git du suivi des modifications (mais pas de votre dossier!)
 - [ ] Annulez des modifications en effectuant un revert
 
