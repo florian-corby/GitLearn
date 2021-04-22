@@ -1,4 +1,4 @@
-# GitLearn <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/Chuxclub/GitLearn?style=plastic"> <a href="https://gitter.im/AutoDiLab/GitLearn"><img alt="Gitter" src="https://img.shields.io/gitter/room/AutoDiLab/GitLearn?style=plastic"></a> 
+# GitLearn <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/Chuxclub/GitLearn?style=plastic">
 Projet consistant à fournir un ensemble d'outils, de documents et une progression parmi ces outils et documents pour une acquisition rapide de Git
 
 
