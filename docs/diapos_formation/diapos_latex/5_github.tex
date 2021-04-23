@@ -263,7 +263,7 @@ Vous avez \textbf{cloné} le projet d'une personne. Vous avez ensuite travaillé
 
 \begin{enumerate}
     \item Comme précédemment vous forkez
-    \item Vous ajoutez une branche distante à votre clone: "git remote add <nom> <urlDeVotreDepot>" ou, plus brutal: "git remote rm origin" suivi de "git remote add origin <urlDeVotreDepot>"
+    \item Vous ajoutez une branche distante à votre clone: \textit{git remote add <nom> <urlDeVotreDepot>} ou, plus brutal: \textit{git remote rm origin} suivi de \textit{git remote add origin <urlDeVotreDepot>}
     \item Vous pushez vos changements sur ce fork
     \item Vous faites un pull request comme précédemment
 \end{enumerate}
@@ -286,24 +286,144 @@ Vous avez \textbf{cloné} le projet d'une personne. Vous avez ensuite travaillé
 
 \section{Communiquer autour du projet avec GitHub}
 
-
 % Subsection:
 \subsection{Communiquer}
-\begin{frame}{}
+\begin{frame}{Les notifications}
+Les notifications permettent à celles et ceux qui y sont inscrits de recevoir des mails dès qu'une mise à jour est faite sur le projet:
+\begin{center}
+	\includegraphics[scale=0.15]{github_notifications.png}
+\end{center}
 \end{frame}
+
+\begin{frame}{Les discussions}
+Les discussions sont des sortes de listes de diffusion de mails avec des sujets fixes:
+\begin{center}
+	\includegraphics[scale=0.15]{github_discussions1.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Les discussions}
+Il est possible de désabonner d'une discussion pour cesser de recevoir des mails ou au contraire d'épingler celle-ci pour qu'elle reste visible à tout moment:
+\begin{center}
+	\includegraphics[scale=0.15]{github_discussions2.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Les discussions}
+Il est possible d'y répondre directement depuis sa boîte mail:
+\begin{center}
+	\includegraphics[scale=0.15]{github_discussions3.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Les tickets (ou issues)}
+Un ticket est un moyen d'indiquer qu'une feature est souhaitée ou un bug a été détecté ou même tout simplement de poser une question. L'avantage est que ces "billets"/"tickets" peuvent être catégorisés par des labels et triés automatiquement:
+\begin{center}
+	\includegraphics[scale=0.15]{github_issues1.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Les tickets (ou issues)}
+Il est également possible de créer des templates de tickets (comme pour un bug report) qui permettent de standardiser le contenu de ces-derniers. Il suffit d'aller dans les options de ce-dernier:
+\begin{center}
+	\includegraphics[scale=0.15]{github_issues3_E.png}
+\end{center}
+\end{frame}
+
+
+\begin{frame}{Les tickets (ou issues)}
+Création d'un billet avec choix du template. Si aucun template ne convient à l'utilisateur il peut choisir de créer un billet sans template:
+\begin{center}
+	\includegraphics[scale=0.15]{github_issues5_E.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Les tickets (ou issues)}
+Édition d'un billet avec template:
+\begin{center}
+	\includegraphics[scale=0.15]{github_issues4.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Les tickets (ou issues)}
+Édition d'un billet sans template:
+\begin{center}
+	\includegraphics[scale=0.15]{github_issues2.png}
+\end{center}
+\end{frame}
+
+
+\begin{frame}{Les projets}
+Les projets sont des tableaux de bord de l'avancement du projet. Les tickets peuvent y apparaître automatiquement et triés en colonnes "à faire" / "en cours" / "terminés":
+\begin{center}
+	\includegraphics[scale=0.15]{github_projects2.png}
+\end{center}
+\end{frame}
+
+\begin{frame}
+Les projets fonctionnent en utilisant deux briques: les colonnes et dans les colonnes des cartes. Il est possible d'utiliser la syntaxe MarkDown dans ces cartes. Aussi vous pouvez donner le sens et l'usage que vous voulez à vos colonnes:\\
+\medskip
+
+\begin{itemize}
+	\item Créer une roadmap du projet
+	\item Un mini-chat
+	\item Une colonne de liens vers des documentations extérieures
+	\item Les gestions de tickets
+	\item Une colonne "dates importantes" qui donne les deadlines ou la date de la prochaine réunion autour du projet
+	\item etc.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Les projets}
+Il est possible de créer plusieurs projets dans les cas où, par exemple, le projet implique plusieurs gros services différents:
+\begin{center}
+	\includegraphics[scale=0.15]{github_projects1.png}
+\end{center}
+\end{frame}
+
 
 
 % Subsection:
 \subsection{Les fichiers spéciaux}
-\begin{frame}{}
+\begin{frame}{Le fichier README}
+\begin{center}
+	\includegraphics[scale=0.15]{github_fichiersSpeciaux.png}
+\end{center}
+\end{frame}
+
+
+\begin{frame}{Le fichier LICENSE}
+À l'instar du README le fichier LICENSE est analysé par un robot pour afficher cette licence dans la page d'accueil de votre projet:
+\begin{center}
+	\includegraphics[scale=0.15]{github_license1.png}
+\end{center}
+\end{frame}
+
+
+\begin{frame}{Le fichier LICENSE}
+Le contenu du fichier LICENSE peut être copié-collé en vous aidant de ce site \url{https://choosealicense.com/}:
+\begin{center}
+	\includegraphics[scale=0.15]{github_license2.png}
+\end{center}
 \end{frame}
 
 
 % Subsection:
 \subsection{La syntaxe MarkDown}
-\begin{frame}{}
+\begin{frame}{Le guide du MarkDown}
+
+Le MarkDown est un ensemble de petits codes syntaxiques qui permettent de formatter automatiquement un document. L'ensemble de ces codes tient en une page web \url{https://guides.github.com/features/mastering-markdown/}: 
+\begin{center}
+	\includegraphics[scale=0.15]{github_markdown.png}
+\end{center}
 \end{frame}
 
+\begin{frame}{Le guide des emojis en MarkDown}
+Il est possible de mettre des emojis dans un README, la page complète vers les codes de ces-derniers se trouve ici \url{https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md}: 
+\begin{center}
+	\includegraphics[scale=0.15]{github_emojis.png}
+\end{center}
+\end{frame}
 
 
 %% --------------------- %%
@@ -320,28 +440,89 @@ Vous avez \textbf{cloné} le projet d'une personne. Vous avez ensuite travaillé
 
 \section{Pour aller plus loin avec GitHub}
 
-
 % Subsection:
 \subsection{Le README de son profil}
-\begin{frame}{}
+\begin{frame}{Le dépôt spécial du profil}
+Vous pouvez faire apparaître un README sur la page d'accueil de votre profil. Pour ce faire vous devez créer un dépôt dont le nom est celui de votre profil \underline{ET} qui ne contient qu'un README:
+\begin{center}
+	\includegraphics[scale=0.15]{github_depotSpecial_E.png}
+\end{center}
 \end{frame}
 
 
 % Subsection:
 \subsection{Les Shields en tête du README}
-\begin{frame}{}
+\begin{frame}{Les shields pour des infos en temps réel}
+Les shields sont des petits encarts qu'on trouve généralement en tête des README (mais vous pouvez les diposer où vous voulez) et qui ont des fonctionnalités très variables. Le plus fréquemment ils permettent de montrer le dynamisme d'un projet:
+\begin{center}
+	\includegraphics[scale=0.15]{github_shields1_E.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Les shields pour des infos en temps réel}
+\begin{center}
+	\includegraphics[scale=0.15]{github_shields2_E.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Les shields pour des infos en temps réel}
+\begin{center}
+	\includegraphics[scale=0.15]{github_shields3_E.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Les shields pour des infos en temps réel}
+\begin{center}
+	\includegraphics[scale=0.15]{github_shields4.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Les shields pour des infos en temps réel}
+\begin{center}
+	\includegraphics[scale=0.15]{github_shields5.png}
+\end{center}
+\end{frame}
+
+
+% Subsection:
+\subsection{Les templates de projets}
+\begin{frame}{Les templates de projets}
+Pour démarrer des projets avec une arborescence standarde et peut-être des fichiers (comme des README?) pré-remplis vous pouvez créer un dépôt publique ou privé:
+\begin{center}
+	\includegraphics[scale=0.15]{github_repoTemplate1.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Les templates de projets}
+Puis dans les settings et l'onglet des options du projet vous pouvez indiquer qu'il s'agit d'un template (et non d'un vrai projet!):
+\begin{center}
+	\includegraphics[scale=0.15]{github_repoTemplate2.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Les templates de projets}
+Il vous suffit alors de cliquer sur "Use this template" pour démarrer un tout projet avec l'arborescence/les fichiers pré-remplis du template en question:
+\begin{center}
+	\includegraphics[scale=0.15]{github_repoTemplate3.png}
+\end{center}
 \end{frame}
 
 
 % Subsection:
 \subsection{Les organisations}
-\begin{frame}{}
+\begin{frame}{Une collaboration à grande échelle avec les organisations}
+
 \end{frame}
 
 
 % Subsection:
 \subsection{Les logiciels avec une API GitHub}
-\begin{frame}{}
+\begin{frame}{Gitter: le Discord des développeurs}
+
+\end{frame}
+
+\begin{frame}{Les applis Android}
+
 \end{frame}
 
 
