@@ -97,6 +97,51 @@ Vous pouvez sauter cet exercice pour l'instant. Revenez-y quand vous vous serez 
 
 
 
+#### La boucle locale de travail <a id="configuration"></a>
+
+On rappelle la boucle de travail locale:
+![boucleLocale](./images/gitCommandFlow1.png)
+
+Nous allons travailler cette boucle sur un projet test.
+
+###### Exercice
+- [ ] Créez un dossier test
+- [ ] Dans votre dossier test lancez la commande `git init`
+- [ ] Lancez un premier `git status` (ou `git st` si vous avez défini l'alias) puis lisez le message que Git affiche.
+- [ ] Créez un fichier test.txt, écrivez "Hello World!" dedans puis sauvegardez
+- [ ] Relancez un `git status`. Comme précédemment lisez le message
+- [ ] Ajoutez le fichier au suivi en utilisant la commande que Git vous propose
+- [ ] Relancez un `git status` et lisez le message
+- [ ] Faites votre premier commit
+- [ ] Relancez un `git status` et lisez le message
+
+Comme vous pouvez déjà le constater la commande `git status` est une commande __très__ utilisée! Elle vous permet de savoir quels fichiers sont suivis ou non, lesquels sont ajoutés au staging ou non, etc. Utilisez-la autant que possible!
+
+###### Exercice
+- [ ] Admirez votre premier commit avec la commande `git log`
+- [ ] Créez un autre fichier test2.txt dans lequel vous écrirez "Hello Everyone!"
+- [ ] Faites une modification dans votre premier fichier test.txt
+- [ ] Faites un `git status` et lisez le message
+- [ ] Faites un `git add -A` suivi d'un `git status`. Que constatez-vous?
+- [ ] Retirez test2.txt du suivi des modifications avec la commande `git rm --cached test2.txt`
+- [ ] Faites un commit puis un `git status`. Que constatez-vous?
+
+La commande `git rm --cached <nomFichier>` n'est pas la commande que vous utiliserez le plus mais elle est très utile dès lors qu'on veut retirer un fichier du suivi comme un fichier binaire inutile, une fichier trop lourd (500Mo) pour être partagé, etc.
+
+Vous remarquerez également une problème: tant qu'on n'a pas dit à Git d'ignorer le fichier test2.txt on ne pourra pas utiliser la commande `git add -A` qui est pourtant bien pratique.
+
+Pour dire à git d'ignorer ce fichier on va créer un fichier .gitignore.
+
+:warning: Le nom du fichier est obligatoirement __.gitignore__. Ce n'est pas .gitignore.txt ou gitignore. Le "." devant le nom du fichier indique qu'il s'agit d'un fichier caché. Pour les utilisateurs Windows: vous devrez activer l'option d'affichage des fichiers cachés. De plus, vous devrez vous assurer qu'aucune extension automatique .txt ne s'est ajoutée et l'éliminer si c'est le cas!
+
+###### Exercice
+- [ ] Créez le fichier .gitignore
+- [ ] Écrivez test2.txt dans ce .gitignore et enregistrez
+- [ ] Lancez un `git status`. Que constatez-vous?
+- [ ] Ajoutez votre .gitignore au suivi des modifications et commitez
+
+
+
 <!-- ======================================================================= -->
 <!--                                Module 2                                 -->
 <!-- ======================================================================= -->
