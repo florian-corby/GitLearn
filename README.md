@@ -1,4 +1,6 @@
-# GitLearn <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/Chuxclub/GitLearn"> <a href="https://chuxclub.github.io/GitLearn/"><img alt="Page web d'exercices" src="https://img.shields.io/badge/GitLearn.io-Exercices%20d'accompagnement-blue"></a>
+# GitLearn 
+<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/Chuxclub/GitLearn"> <a href="https://chuxclub.github.io/GitLearn/"><img alt="Page web d'exercices" src="https://img.shields.io/badge/GitLearn.io-Exercices%20d'accompagnement-blue"></a> [![Join the chat at https://gitter.im/Chuxclub-GitLearn/community](https://badges.gitter.im/Chuxclub-GitLearn/community.svg)](https://gitter.im/Chuxclub-GitLearn/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) 
+
 Projet consistant à fournir un ensemble d'outils, de documents et une progression parmi ces outils et documents pour une acquisition rapide de Git
 
 
