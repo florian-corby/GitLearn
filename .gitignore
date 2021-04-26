@@ -1,5 +1,5 @@
 docs/cahier_des_charges/*
-docs/diapos_formation/build
+docs/diapos_formation/diapos_latex/build/
 
 # Latex:
 *.aux
@@ -10,3 +10,4 @@ docs/diapos_formation/build
 *.snm
 *.toc
 *.vrb
+*.dvi

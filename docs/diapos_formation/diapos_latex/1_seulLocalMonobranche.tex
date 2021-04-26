@@ -102,16 +102,27 @@ La commande "man gittutorial" recense de nombreux tutoriels sur de nombreuses no
 
 % Subsection:
 \subsection{Configurer Git}
-\begin{frame}
-\frametitle{Commande: git config $--$global user.name/user.email}
+\begin{frame}{Commande: git config $--$global user.name/user.email}
 On ne peut pas faire de commit sans nom d'utilisateur et de mail! C'est une question de responsabilité.
 \medskip
 
 \underline{Syntaxe:} git config $--$global user.name "monNomUtilisateur"
 \smallskip
-\underline{Syntaxe:} git config $--$global user.email "monMail@boiteMail.com"
+\underline{Syntaxe:} git config $--$global user.email "monMail@Mailbox.com"
+\medskip
+\end{frame}
+
+\begin{frame}{Commande: git config $--$global core.editor}
+Par défaut Git ouvrira l'éditeur de texte Vim ou Nano lorsque vous écrirez les messages de vos commits (sauf si vous utilisez l'option -m, cf. \textit{git commit -m "..."}).\\
 \medskip
 
+Pour changer d'éditeur vous pouvez suivre les instructions de cette adresse : \url{https://git-scm.com/book/fr/v2/Commandes-Git-Installation-et-configuration}\\
+\medskip
+
+\underline{Exemple:} git config --global core.editor "'C:\textbackslash Program Files (x86)\textbackslash Windows NT\textbackslash Accessories\textbackslash wordpad.exe'"\\
+\medskip
+
+\textbf{IMPORTANT:} Remarquez dans cet exemple que les guillemets " entourent les simple quotes ' 
 \end{frame}
 
 \begin{frame}
