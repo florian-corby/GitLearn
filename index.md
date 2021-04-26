@@ -1,4 +1,4 @@
-## Bienvenue sur la page Web de GitLearn!
+## Bienvenue sur la page Web de GitLearn!<a id="bienvenue"></a>
 
 Cette page web est destinée à vous proposer une série d'exercices en accompagnement des modules de formation.
 
@@ -19,7 +19,7 @@ Une fois que ce module 0 aura été bien compris, téléchargez et installez Git
 <!-- ======================================================================= -->
 <!--                              Module 0-1                                 -->
 <!-- ======================================================================= -->
-### Les terminaux de commande ou CLI <a href="#les-terminaux"></a>
+### Les terminaux de commande ou CLI <a id="les-terminaux"></a>
 [Retour à la table des matières](#bienvenue)
 
 Dans Windows ouvrez Git Bash ou un terminal de commande sous Linux (Ctrl + Alt + T). Vous devriez obtenir une fenêtre similaire à celle-ci:
@@ -59,7 +59,7 @@ Pour revenir au dossier précédent entez `cd -`, pour remonter d'un dossier par
 <!-- ======================================================================= -->
 <!--                                Module 1                                 -->
 <!-- ======================================================================= -->
-### Git : mode d'emploi pour un usage seul, sans dépôt distant, sur une seule branche <a href="#git1"></a>
+### Git : mode d'emploi pour un usage seul, sans dépôt distant, sur une seule branche <a id="git1"></a>
 [Retour à la table des matières](#bienvenue)
 
 
@@ -71,7 +71,7 @@ Pour revenir au dossier précédent entez `cd -`, pour remonter d'un dossier par
 <!-- ======================================================================= -->
 <!--                                Module 2                                 -->
 <!-- ======================================================================= -->
-### Git : mode d'emploi pour un usage seul, sans dépôt distant, avec une ou plusieurs branches <a href="#git2"></a>
+### Git : mode d'emploi pour un usage seul, sans dépôt distant, avec une ou plusieurs branches <a id="git2"></a>
 [Retour à la table des matières](#bienvenue-sur-la-page-web-de-gitlearn-)
 
 
@@ -83,7 +83,7 @@ Pour revenir au dossier précédent entez `cd -`, pour remonter d'un dossier par
 <!-- ======================================================================= -->
 <!--                                Module 3                                 -->
 <!-- ======================================================================= -->
-### Git : mode d'emploi pour un usage seul, avec dépôt distant<a href="#git3"></a>
+### Git : mode d'emploi pour un usage seul, avec dépôt distant<a id="git3"></a>
 [Retour à la table des matières](#bienvenue)
 
 
@@ -95,5 +95,5 @@ Pour revenir au dossier précédent entez `cd -`, pour remonter d'un dossier par
 <!-- ======================================================================= -->
 <!--                                Module 4                                 -->
 <!-- ======================================================================= -->
-### Git : mode d'emploi pour un usage collaboratif<a href="#git4"></a>
+### Git : mode d'emploi pour un usage collaboratif<a id="git4"></a>
 [Retour à la table des matières](#bienvenue)
