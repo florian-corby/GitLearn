@@ -38,7 +38,7 @@ Je pars ici du présupposé que vous débutez votre apprentissage de Git. Si vou
 0. Installez git via le site officiel: https://git-scm.com/
 1. Clonez ce projet à l'aide de la commande: git clone _urlDeCeProjet_
 2. (Optionnel) Lisez le fichier teaserFormation.pdf
-3. Allez dans docs/diapos\_formation puis lisez les diapos dans l'ordre indiqué (0\_VCS.pdf, 0-1\_interludeTerminauxCmd.pdf, etc.)
+3. Allez dans [./docs/diapos_formation](./docs/diapos_formation) puis lisez les diapos dans l'ordre indiqué (0\_VCS.pdf, 0-1\_interludeTerminauxCmd.pdf, etc.)
 4. Utilisez ces diapos comme des supports d'accompagnement => pratiquez autant que possible les commandes que vous découvrirez! Pour cela un dossier codes/ vous est fourni afin de réaliser les tests que vous voulez. Si quelque-chose tourne mal vous n'avez qu'à recloner le projet et recommencer jusqu'à atteindre la maîtrise du logiciel Git
 
 
