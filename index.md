@@ -172,8 +172,18 @@ Il se peut que vous ayiez envie de "visiter" votre projet dans une version anté
 
 #### Supprimer des versions <a id="revert"></a>
 
+Il arrive parfois qu'on veuille annuler un changement. Pour ce faire il y a plusieurs méthodes. L'une de ces méthodes est la méthode "sûre" car elle ne fait qu'enrichir l'historique des versions en ajoutant des versions enregistrant vos annulations. Cette méthode est celle de la commande `git revert <id>`
+
 ###### Exercice
-- [ ]
+- [ ] Créez un fichier testRevert.txt
+- [ ] Écrivez dedans 'toto' puis commitez. Écrivez ensuite 'titi' et commitez. Écrivez 'tata' et commitez. Enfin écrivez 'tutu' et commitez
+- [ ] Entrez `git log` pour que vous constatiez l'état courant de votre historique
+- [ ] Choisissez le tout dernier commit parmi ceux que vous venez d'ajouter et faites un `git revert` avec l'identifiant de ce commit
+- [ ] Refaites un `git log`
+- [ ] Annulez le tout dernier commit en utilisant un chemin relatif vers le commit cette fois-ci
+- [ ] Refaites un `git log`
+
+
 
 
 <!-- ======================================================================= -->
