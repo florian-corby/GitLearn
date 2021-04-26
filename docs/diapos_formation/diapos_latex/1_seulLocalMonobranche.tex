@@ -330,11 +330,14 @@ crex@crex:~/projects/avlTreesL3Project$ cat .gitignore
 La commande git commit permet de sauvegarder l'ensemble des fichiers suivis en une version nommée automatiquement et ajoutée à l'historique des versions:
 \smallskip
 \begin{itemize}
-    \item On doit toujours indiquer un message lors d'un commit (cf. \textbf{git commit -am "mon message"})
+    \item On doit toujours indiquer un message lors d'un commit\footnote[frame]{ Si l'option -m de \textit{git commit} n'est pas utilisée l'éditeur de texte indiqué dans la configuration core.editor est utilisé, Vim ou Nano par défaut. Pour changer ceci: voir la partie sur la configuration de Git précédemment. }\\
+    (cf. \textbf{git commit -m "mon message"} )
     \item Ce message doit expliquer ce qui a été fait
     \item Ce message sera visible de tous ceux qui auront votre projet (y compris sur le dépôt distant)
     \item Un "commit" est donc un engagement, vous engagez votre responsabilité
 \end{itemize}
+
+
 \end{frame}
 
 
