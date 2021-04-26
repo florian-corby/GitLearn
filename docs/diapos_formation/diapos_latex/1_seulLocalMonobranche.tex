@@ -269,7 +269,7 @@ Untracked files: (use "git add <file>..." to include in what will be committed)
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Commande: .gitignore}
+\frametitle{Le fichier .gitignore}
 Le fichier .gitignore permet d'ignorer des fichiers du suivi des modifications. Les "wildcards" y sont autorisées:
 \medskip
 \begin{mdframed}[style=Bash]
@@ -286,13 +286,20 @@ crex@crex:~/projects/avlTreesL3Project$ cat .gitignore
 \end{frame}
 
 \begin{frame}
-\frametitle{Ajouter/Retirer du staging}
+\frametitle{Ajouter/Retirer du staging ou du suivi}
 
-\underline{Pour ajouter au suivi des modifications:}
+\underline{Pour ajouter au staging:}
 \smallskip
 \begin{itemize}
     \item[] git add <nom\_fichier>
     \item[] git add -A
+\end{itemize}
+\bigskip
+
+\underline{Pour retirer du staging:}
+\smallskip
+\begin{itemize}
+    \item[] git restore $--$staged <nom\_fichier>
 \end{itemize}
 \bigskip
 

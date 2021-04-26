@@ -55,18 +55,34 @@ Updating files: 100% (71277/71277), done.
 
 \subsection{Suivre une branche distante}
 \begin{frame}
-\frametitle{Commandes: git remote add <name> <url> / git remote rm <name>}
-La première commande "git remote add" suivi d'un nom et d'une url permettent de suivre la branche distante désignée par l'url.\\
+\frametitle{Commandes: git remote add <al> <url> / git remote rm <al>}
+La première commande "git remote add" suivi d'un alias et d'une url permettent de suivre la branche distante désignée par l'url.\\
 \smallskip
 
-Le nom est un alias donné à l'url il permet notamment:
+Un alias est un comme un pseudo donné à l'url il permet:
 \begin{enumerate}
-    \item De spécifier où faire le push d'une branche (Exemple: git push <nom> <nomDeMaBrancheLocale>)
-    \item De spécifier quelle branche du dépôt distant on veut "pull" (Exemple: git pull <nom>)
-    \item De supprimer un suivi de branche distante avec "git remote rm <name>"
-    \item De spécifier une branche où on veut push/pull par défaut avec "git push $--$set-upstream <nom> <branch>"
+    \item De spécifier où faire le push d'une branche:\\ git push <al> <nomBrancheDistante>
+    \item De spécifier quelle branche du dépôt distant on veut pull:\\ git pull <al> <nomBrancheDistante>
+    \item De supprimer un suivi de branche distante:\\ git remote rm <al>
+    \item De spécifier une branche où on veut push/pull par défaut:\\ git push $--$set-upstream <al> <nomBrancheDistante>
 \end{enumerate}
 \end{frame}
+
+\begin{frame}[fragile]{Commande: git remote -v}
+Comme pour les branches locales on peut vouloir savoir quelle branche distante on suit actuellement ou encore l'ensemble des alias vers des url que contient notre branche locale. Ces informations sont accessibles par la commande \textit{git remote -v}.
+\medskip
+
+Exemple:
+\begin{mdframed}[style=Bash]
+\begin{lstlisting}[style=Bash, caption=Exemple d'output de la commande git remote -v]
+crex@crex:~/projects/GitLearn(main)$ git remote -v
+origin	git@github.com:Chuxclub/GitLearn.git (fetch)
+origin	git@github.com:Chuxclub/GitLearn.git (push)
+\end{lstlisting}
+\end{mdframed}
+
+\end{frame}
+
 
 
 %% --------------------- %%
@@ -123,6 +139,25 @@ La commande "git push" permet de mettre à jour la branche distante en incorpora
     \item Il faut avoir fait un git pull avant de l'utiliser
     \item Il faut avoir les droits
 \end{enumerate}
+\end{frame}
+
+
+%% --------------------- %%
+%%        SECTION        %%
+%% --------------------- %%
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Table of Contents}
+    \tableofcontents[sectionstyle=show/hide,subsectionstyle=show/show/hide]
+  \end{frame}
+}
+\section{La boucle de travail multibranches connectées}
+
+\begin{frame}{La boucle de travail multibranches connectées}
+\begin{center}
+	\includegraphics[scale=0.3]{gitCommandFlow/gitCommandFlow_connectedLoop.png}
+\end{center}
 \end{frame}
 
 
