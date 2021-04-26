@@ -11,6 +11,7 @@ Une fois que ce module 0 aura été bien compris, téléchargez et installez Git
 - [Bienvenue sur la page Web de GitLearn!](#bienvenue)
   * [Les terminaux de commande ou CLI](#les-terminaux)
   * [Git : mode d'emploi pour un usage seul, sans dépôt distant, sur une seule branche](#git1)
+    + [Configuration de Git](#configuration)
   * [Git : mode d'emploi pour un usage seul, sans dépôt distant, avec une ou plusieurs branches](#git2)
   * [Git : mode d'emploi pour un usage seul, avec dépôt distant](#git3)
   * [Git : mode d'emploi pour un usage collaboratif](#git4)
@@ -29,7 +30,7 @@ Notez la tilde bleue ~. Cette tidle signifie "HOME" sous Linux. C'est votre doss
 
 Vous allez apprendre à vous déplacer dans l'arborescence de vos fichiers dans un terminal. C'est une compétence essentielle pour apprendre Git. En effet, pour utiliser Git sur votre projet il faut vous rendre là où se trouve votre projet. Heureusement deux commandes suffisent à atteindre n'importe quel dossier d'une arborescence.
 
-#### Exercice
+###### Exercice
 
 - [ ] Dans votre terminal ou votre git bash tapez `ls` puis entrez.
 
@@ -39,13 +40,13 @@ Le résultat de la commande `ls` chez moi donne:
 
 Il ne vous reste plus qu'à taper `cd` suivi du nom du dossier dans lequel vous voulez aller.
 
-#### Exercice
+###### Exercice
 
 - [ ] Changez de dossier avec la commande `cd`
 
 Pour revenir au dossier précédent entez `cd -`, pour remonter d'un dossier parent dans l'arborescence entrez `cd ..`, pour monter de deux parents entrez `cd ../../`, etc.
 
-#### Exercice
+###### Exercice
 
 - [ ] Revenez au dossier précédent avec `cd -`
 - [ ] Remontez dans le dossier parent avec `cd ..`
@@ -62,9 +63,37 @@ Pour revenir au dossier précédent entez `cd -`, pour remonter d'un dossier par
 ### Git : mode d'emploi pour un usage seul, sans dépôt distant, sur une seule branche <a id="git1"></a>
 [Retour à la table des matières](#bienvenue)
 
+Nous rentrons maintenant dans le vif du sujet. Tout ce que nous avons fait avant était pour nous préparer théoriquement et maintenant vous êtes fin prêt à la pratique!
+
+#### Configuration de Git <a id="configuration"></a>
+
+La première fois que vous utilisez Git vous devrez lui fournir une configuration minimum avant d'utiliser ses services. Il vous faut ainsi lui donner votre nom et votre adresse mail. Comme dit dans les diapos c'est une question de responsabilité! Et Git ne peut pas trouver ces données tout seul.
 
 
+###### Exercice
+- [ ] Entrez `git config --global user.name "votreNomUtilisateur"`
+- [ ] Entrez `git config --global user.email "votreMail@votreMail.com"`
 
+Pour éviter de vous retrouver accidentellement "piégés" dans Vim lors d'un commit je vous recommande également de configurer l'éditeur de texte utilisé pour écrire les messages des commits.
+
+Renseignez-vous ici pour votre éditeur préféré: [Page officielle](https://git-scm.com/book/fr/v2/Commandes-Git-Installation-et-configuration)
+
+
+###### Exercice
+Utilisateurs Windows, selon l'emplacement de votre WordPad:
+- [ ] Entrez `git config --global core.editor "'C:\Program Files\Windows NT\Accessories\wordpad.exe'"`
+- [ ] Ou entrez `git config --global core.editor "'C:\Program Files (x86)\Windows NT\Accessories\wordpad.exe'"`
+
+Pour les utilisateurs Linux: RTFM ([Page officielle](https://git-scm.com/book/fr/v2/Commandes-Git-Installation-et-configuration)) :smile:
+
+
+###### Exercice
+Vous pouvez sauter cet exercice pour l'instant. Revenez-y quand vous vous serez lassés d'écrire en boucle "status" et "commit" en toutes lettres :wink: :
+
+- [ ] Créez l'alias pour la commande checkout
+- [ ] Créez l'alias pour la commande branch
+- [ ] Créez l'alias pour la commande commit
+- [ ] Créez l'alias pour la commande status
 
 
 
