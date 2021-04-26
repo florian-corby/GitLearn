@@ -12,6 +12,9 @@ Une fois que ce module 0 aura été bien compris, téléchargez et installez Git
   * [Les terminaux de commande ou CLI](#les-terminaux)
   * [Git : mode d'emploi pour un usage seul, sans dépôt distant, sur une seule branche](#git1)
     + [Configuration de Git](#configuration)
+    + [Boucle locale de travail](#boucle_locale)
+    + [Consulter des versions](#log)
+    + [Supprimer des versions](#revert)
   * [Git : mode d'emploi pour un usage seul, sans dépôt distant, avec une ou plusieurs branches](#git2)
   * [Git : mode d'emploi pour un usage seul, avec dépôt distant](#git3)
   * [Git : mode d'emploi pour un usage collaboratif](#git4)
@@ -97,7 +100,7 @@ Vous pouvez sauter cet exercice pour l'instant. Revenez-y quand vous vous serez 
 
 
 
-#### La boucle locale de travail <a id="configuration"></a>
+#### La boucle locale de travail <a id="boucle_locale"></a>
 
 On rappelle la boucle de travail locale:
 ![boucleLocale](./images/gitCommandFlow1.png)
@@ -140,6 +143,37 @@ Pour dire à git d'ignorer ce fichier on va créer un fichier .gitignore.
 - [ ] Lancez un `git status`. Que constatez-vous?
 - [ ] Ajoutez votre .gitignore au suivi des modifications et commitez
 
+Merci à vous d'être arrivé jusqu'ici! Vous avez maintenant toutes les commandes de la boucle locale de travail! Vous pouvez d'ores et déjà versionner n'importe lequel de vos projets! :smiley:
+
+
+#### Consulter des versions <a id="log"></a>
+
+La commande `git blame <nomFichier>` permet de savoir qui a fait quoi sur un fichier donné avec une très grande précision. Mais pour l'instant vous travaillez seul, aussi cette commande n'a que peu d'intérêt pour le moment. En revanche maintenant que nous avons quelques commits nous allons explorer l'historique des versions.
+
+###### Exercice
+- [ ] Entrez `git log` pour lire l'historique des versions de votre projet test
+- [ ] Entrez la commande `git diff` en passant deux versions de votre choix en paramètre. Inversez ces deux paramètres. Que constatez-vous?
+- [ ] Essayez d'obtenir le même affichage mais avec un chemin relatif vers ces versions. Qu'est-ce qui vous paraît le plus pratique?
+- [ ] Entrez la commande `git diff` sans arguments. Faites quelques modifications dans test.txt puis entrez de nouveau la commande `git diff` sans arguments. Que constatez-vous?
+- [ ] Faites un `git status`
+- [ ] Restaurez le fichier test.txt avec la commande `git restore <nomFichier>`
+- [ ] Refaites un `git status`
+
+Il se peut que vous ayiez envie de "visiter" votre projet dans une version antérieure sans avoir à passer par la commande `git diff`.
+
+###### Exercice
+- [ ] Entrez `git log`
+- [ ] Choisissez une version antérieure puis utilisez la commande `git checkout` pour vous y rendre en utilisant l'identifiant de la version
+- [ ] Refaites un `git log` pendant que vous êtes sur cette ancienne version. Que constatez-vous?
+- [ ] Revenez à votre tout dernier commit en utilisant le nom de la branche sur laquelle vous êtes (`git branch` pour obtenir la liste de vos branches et celles sur laquelle vous vous trouvez)
+- [ ] Essayez de revenir à cette même version antérieure en utilisant un chemin relatif vers le commit que vous avez choisi puis revenez à votre tout dernier commit comme précédemment
+
+
+
+#### Supprimer des versions <a id="revert"></a>
+
+###### Exercice
+- [ ]
 
 
 <!-- ======================================================================= -->
