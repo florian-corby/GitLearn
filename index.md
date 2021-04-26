@@ -8,22 +8,19 @@ Une fois que ce module 0 aura été bien compris, téléchargez et installez Git
 
 
 ##### Table des matières
-- [Bienvenue sur la page Web de GitLearn!](#bienvenue-sur-la-page-web-de-gitlearn-)
-  * [Les terminaux de commande ou CLI](#les-terminaux-de-commande-ou-cli)
-    + [Exercice](#exercice)
-    + [Exercice](#exercice-1)
-    + [Exercice](#exercice-2)
-  * [Git : mode d'emploi pour un usage seul, sans dépôt distant, sur une seule branche](#git---mode-d-emploi-pour-un-usage-seul--sans-d-p-t-distant--sur-une-seule-branche)
-  * [Git : mode d'emploi pour un usage seul, sans dépôt distant, avec une ou plusieurs branches](#git---mode-d-emploi-pour-un-usage-seul--sans-d-p-t-distant--avec-une-ou-plusieurs-branches)
-  * [Git : mode d'emploi pour un usage seul, avec dépôt distant](#git---mode-d-emploi-pour-un-usage-seul--avec-d-p-t-distant)
-  * [Git : mode d'emploi pour un usage collaboratif](#git---mode-d-emploi-pour-un-usage-collaboratif)
+- [Bienvenue sur la page Web de GitLearn!](#bienvenue)
+  * [Les terminaux de commande ou CLI](#les-terminaux)
+  * [Git : mode d'emploi pour un usage seul, sans dépôt distant, sur une seule branche](#git1)
+  * [Git : mode d'emploi pour un usage seul, sans dépôt distant, avec une ou plusieurs branches](#git2)
+  * [Git : mode d'emploi pour un usage seul, avec dépôt distant](#git3)
+  * [Git : mode d'emploi pour un usage collaboratif](#git4)
 
 
 <!-- ======================================================================= -->
 <!--                              Module 0-1                                 -->
 <!-- ======================================================================= -->
-### Les terminaux de commande ou CLI <a name="les-terminaux-de-commande-ou-cli"></a>
-[Retour à la table des matières](#bienvenue-sur-la-page-web-de-gitlearn-)
+### Les terminaux de commande ou CLI <a href="#les-terminaux"></a>
+[Retour à la table des matières](#bienvenue)
 
 Dans Windows ouvrez Git Bash ou un terminal de commande sous Linux (Ctrl + Alt + T). Vous devriez obtenir une fenêtre similaire à celle-ci:
 ![GitBash1](./images/interlude/gitBash1.png)
@@ -32,7 +29,7 @@ Notez la tilde bleue ~. Cette tidle signifie "HOME" sous Linux. C'est votre doss
 
 Vous allez apprendre à vous déplacer dans l'arborescence de vos fichiers dans un terminal. C'est une compétence essentielle pour apprendre Git. En effet, pour utiliser Git sur votre projet il faut vous rendre là où se trouve votre projet. Heureusement deux commandes suffisent à atteindre n'importe quel dossier d'une arborescence.
 
-#### Exercice <a name="exercice"></a>
+#### Exercice
 
 - [ ] Dans votre terminal ou votre git bash tapez `ls` puis entrez.
 
@@ -42,13 +39,13 @@ Le résultat de la commande `ls` chez moi donne:
 
 Il ne vous reste plus qu'à taper `cd` suivi du nom du dossier dans lequel vous voulez aller.
 
-#### Exercice <a name="exercice-1"></a>
+#### Exercice
 
 - [ ] Changez de dossier avec la commande `cd`
 
 Pour revenir au dossier précédent entez `cd -`, pour remonter d'un dossier parent dans l'arborescence entrez `cd ..`, pour monter de deux parents entrez `cd ../../`, etc.
 
-#### Exercice <a name="exercice-2"></a>
+#### Exercice
 
 - [ ] Revenez au dossier précédent avec `cd -`
 - [ ] Remontez dans le dossier parent avec `cd ..`
@@ -62,8 +59,8 @@ Pour revenir au dossier précédent entez `cd -`, pour remonter d'un dossier par
 <!-- ======================================================================= -->
 <!--                                Module 1                                 -->
 <!-- ======================================================================= -->
-### Git : mode d'emploi pour un usage seul, sans dépôt distant, sur une seule branche <a name="git---mode-d-emploi-pour-un-usage-seul--sans-d-p-t-distant--sur-une-seule-branche"></a>
-[Retour à la table des matières](#bienvenue-sur-la-page-web-de-gitlearn-)
+### Git : mode d'emploi pour un usage seul, sans dépôt distant, sur une seule branche <a href="#git1"></a>
+[Retour à la table des matières](#bienvenue)
 
 
 
@@ -74,7 +71,7 @@ Pour revenir au dossier précédent entez `cd -`, pour remonter d'un dossier par
 <!-- ======================================================================= -->
 <!--                                Module 2                                 -->
 <!-- ======================================================================= -->
-### Git : mode d'emploi pour un usage seul, sans dépôt distant, avec une ou plusieurs branches
+### Git : mode d'emploi pour un usage seul, sans dépôt distant, avec une ou plusieurs branches <a href="#git2"></a>
 [Retour à la table des matières](#bienvenue-sur-la-page-web-de-gitlearn-)
 
 
@@ -86,8 +83,8 @@ Pour revenir au dossier précédent entez `cd -`, pour remonter d'un dossier par
 <!-- ======================================================================= -->
 <!--                                Module 3                                 -->
 <!-- ======================================================================= -->
-### Git : mode d'emploi pour un usage seul, avec dépôt distant
-[Retour à la table des matières](#bienvenue-sur-la-page-web-de-gitlearn-)
+### Git : mode d'emploi pour un usage seul, avec dépôt distant<a href="#git3"></a>
+[Retour à la table des matières](#bienvenue)
 
 
 
@@ -98,5 +95,5 @@ Pour revenir au dossier précédent entez `cd -`, pour remonter d'un dossier par
 <!-- ======================================================================= -->
 <!--                                Module 4                                 -->
 <!-- ======================================================================= -->
-### Git : mode d'emploi pour un usage collaboratif
-[Retour à la table des matières](#bienvenue-sur-la-page-web-de-gitlearn-)
+### Git : mode d'emploi pour un usage collaboratif<a href="#git4"></a>
+[Retour à la table des matières](#bienvenue)
