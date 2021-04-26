@@ -10,6 +10,9 @@ Une fois que ce module 0 aura été bien compris, téléchargez et installez Git
 ##### Table des matières
 - [Bienvenue sur la page Web de GitLearn!](#bienvenue-sur-la-page-web-de-gitlearn-)
   * [Les terminaux de commande ou CLI](#les-terminaux-de-commande-ou-cli)
+    + [Exercice](#exercice)
+    + [Exercice](#exercice-1)
+    + [Exercice](#exercice-2)
   * [Git : mode d'emploi pour un usage seul, sans dépôt distant, sur une seule branche](#git---mode-d-emploi-pour-un-usage-seul--sans-d-p-t-distant--sur-une-seule-branche)
   * [Git : mode d'emploi pour un usage seul, sans dépôt distant, avec une ou plusieurs branches](#git---mode-d-emploi-pour-un-usage-seul--sans-d-p-t-distant--avec-une-ou-plusieurs-branches)
   * [Git : mode d'emploi pour un usage seul, avec dépôt distant](#git---mode-d-emploi-pour-un-usage-seul--avec-d-p-t-distant)
@@ -19,7 +22,7 @@ Une fois que ce module 0 aura été bien compris, téléchargez et installez Git
 <!-- ======================================================================= -->
 <!--                              Module 0-1                                 -->
 <!-- ======================================================================= -->
-### Les terminaux de commande ou CLI
+### Les terminaux de commande ou CLI <a name="les-terminaux-de-commande-ou-cli"></a>
 [Retour à la table des matières](#bienvenue-sur-la-page-web-de-gitlearn-)
 
 Dans Windows ouvrez Git Bash ou un terminal de commande sous Linux (Ctrl + Alt + T). Vous devriez obtenir une fenêtre similaire à celle-ci:
@@ -29,7 +32,7 @@ Notez la tilde bleue ~. Cette tidle signifie "HOME" sous Linux. C'est votre doss
 
 Vous allez apprendre à vous déplacer dans l'arborescence de vos fichiers dans un terminal. C'est une compétence essentielle pour apprendre Git. En effet, pour utiliser Git sur votre projet il faut vous rendre là où se trouve votre projet. Heureusement deux commandes suffisent à atteindre n'importe quel dossier d'une arborescence.
 
-#### Exercice
+#### Exercice <a name="exercice"></a>
 
 - [ ] Dans votre terminal ou votre git bash tapez `ls` puis entrez.
 
@@ -39,13 +42,13 @@ Le résultat de la commande `ls` chez moi donne:
 
 Il ne vous reste plus qu'à taper `cd` suivi du nom du dossier dans lequel vous voulez aller.
 
-#### Exercice
+#### Exercice <a name="exercice-1"></a>
 
 - [ ] Changez de dossier avec la commande `cd`
 
 Pour revenir au dossier précédent entez `cd -`, pour remonter d'un dossier parent dans l'arborescence entrez `cd ..`, pour monter de deux parents entrez `cd ../../`, etc.
 
-#### Exercice
+#### Exercice <a name="exercice-2"></a>
 
 - [ ] Revenez au dossier précédent avec `cd -`
 - [ ] Remontez dans le dossier parent avec `cd ..`
@@ -59,7 +62,7 @@ Pour revenir au dossier précédent entez `cd -`, pour remonter d'un dossier par
 <!-- ======================================================================= -->
 <!--                                Module 1                                 -->
 <!-- ======================================================================= -->
-### Git : mode d'emploi pour un usage seul, sans dépôt distant, sur une seule branche
+### Git : mode d'emploi pour un usage seul, sans dépôt distant, sur une seule branche <a name="git---mode-d-emploi-pour-un-usage-seul--sans-d-p-t-distant--sur-une-seule-branche"></a>
 [Retour à la table des matières](#bienvenue-sur-la-page-web-de-gitlearn-)
 
 
