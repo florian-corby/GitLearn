@@ -310,7 +310,8 @@ crex@crex:~/projects/avlTreesL3Project$ cat .gitignore
 \underline{Pour retirer du staging:}
 \smallskip
 \begin{itemize}
-    \item[] git restore $--$staged <nom\_fichier>
+    \item[] git reset $--$ <nom\_fichier>
+    \item[] git reset
 \end{itemize}
 \bigskip
 
@@ -319,25 +320,40 @@ crex@crex:~/projects/avlTreesL3Project$ cat .gitignore
 \begin{itemize}
     \item[] git rm $--$cached <nom\_fichier>
 \end{itemize}
-
 \end{frame}
 
 % Subsection:
 \subsection{Enregistrer une version}
 
-\begin{frame}
-\frametitle{Commande: git commit}
+\begin{frame}{Commande: git commit}
 La commande git commit permet de sauvegarder l'ensemble des fichiers suivis en une version nommée automatiquement et ajoutée à l'historique des versions:
 \smallskip
 \begin{itemize}
-    \item On doit toujours indiquer un message lors d'un commit\footnote[frame]{ Si l'option -m de \textit{git commit} n'est pas utilisée l'éditeur de texte indiqué dans la configuration core.editor est utilisé, Vim ou Nano par défaut. Pour changer ceci: voir la partie sur la configuration de Git précédemment. }\\
-    (cf. \textbf{git commit -m "mon message"} )
+    \item On doit toujours indiquer un message lors d'un commit\\
     \item Ce message doit expliquer ce qui a été fait
     \item Ce message sera visible de tous ceux qui auront votre projet (y compris sur le dépôt distant)
     \item Un "commit" est donc un engagement, vous engagez votre responsabilité
 \end{itemize}
+\end{frame}
+
+\begin{frame}{Commande: git commit}
+La commande \textit{git commit} admet plusieurs options et syntaxes:
+\begin{itemize}
+	\item git commit => ouvre l'éditeur de texte indiqué dans la clé de configuration 	          \textit{core.editor} pour vous permettre d'écrire votre message et enregistre 
+	      ce qui était dans le staging area
+	\item git commit -m "..." => enregistre ce qui était dans le staging area avec le 
+	      message passé en paramètre
+	\item git commit -a => combinaison \textit{git add -A} et \textit{git commit}
+	\item git commit -am "..." => combinaison \textit{git add -A} et \textit{git commit -m "..."}
+\end{itemize}
+\end{frame}
 
 
+\begin{frame}{Commande git commit $--$amend}
+Du fait de l'importance de ces commits et des messages qui y sont associés, Git fournit un moyen de corriger le message du dernier commit (et uniquement \underline{le message} du dernier commit) grâce à l'option \textit{$--$amend}:
+\begin{center}
+	\includegraphics[scale=0.2]{gitCommitAmend.png}
+\end{center}
 \end{frame}
 
 
@@ -353,7 +369,7 @@ La commande git commit permet de sauvegarder l'ensemble des fichiers suivis en u
     \tableofcontents[sectionstyle=show/hide,subsectionstyle=show/show/hide]
   \end{frame}
 }
-\section{Consulter des versions}
+\section{Consulter des changements ou des versions}
 
 % Subsection:
 \subsection{Savoir qui a fait quoi sur un fichier}
@@ -398,17 +414,12 @@ Date:   Wed Feb 10 11:58:21 2021 -0800
 
 % Subsection:
 \subsection{Les différences entre versions}
-\begin{frame}
-\frametitle{Commande: git diff}
-Il y a plusieurs utilisations possibles de la commande \textit{git diff}:
-\smallskip
-\begin{itemize}
-    \item git diff + aucun paramètre: montre la différence entre la version dans le "staging area" et le dernier commit
-    \item git diff <nom\_commit1> <nom\_commit2>: montre la différence entre les deux versions spécifiées
-\end{itemize}
-\medskip
+\begin{frame}{Commande: git diff}
 
-\textbf{IMPORTANT:} On compare le <nom\_commit2> \textbf{par rapport} au <nom\_commit1>. Exemple: <nom\_commit2> a cette ligne en plus (ou en moins) par rapport à <nom\_commit1>, etc.
+\textit{git diff} montre ce qui a été ajouté/supprimé en partant du <nom\_commit1> jusqu'au <nom\_commit2>. \textit{git diff} sans aucun paramètre montre la différence en partant de la version dans le "staging area" et les fichiers actuels du dossier, etc. : 
+\begin{center}
+	\includegraphics[scale=0.15]{gitDiff.png}
+\end{center}
 \end{frame}
 
 
@@ -499,12 +510,11 @@ HEAD is now at a1a8a9d Initial commit
     \tableofcontents[sectionstyle=show/hide,subsectionstyle=show/show/hide]
   \end{frame}
 }
-\section{Supprimer des versions}
+\section{Supprimer des changements ou des versions}
 
 % Subsection:
-\subsection{La méthode brutale}
-\begin{frame}
-\frametitle{Commande: git reset $--$hard <numero\_commit>}
+\subsection{Supprimer définitivement des changements ou des versions}
+\begin{frame}{Commande: git reset $--$hard <numero\_commit>}
 La commande \textit{git reset $--$hard} permet d'annuler tous les commits qui ont été faits après le commit spécifié et de faire revenir ses fichiers à l'état du commit spécifié.
 \medskip
 
@@ -514,35 +524,112 @@ Il n'est pas utile d'indiquer l'entièreté du numéro du commit, seuls les 6 pr
 \textbf{ATTENTION!} C'est une commande très dangereuse... Ce qui est perdu est perdu définitivement! À n'utiliser qu'en cas de dernier recours.
 \end{frame}
 
-
-% Subsection:
-\subsection{La méthode à utiliser}
-\begin{frame}
-\frametitle{Commande: git revert -n <older\_id>\string^..<newer\_id>}
-Cette commande crée un commit qui contient l'annulation de tous les changements des commits spécifiés dans l'intervalle \textit{<older\_id>\string^..<newer\_id>}
+\begin{frame}{Commande: git reset $--$hard (sans paramètre)}
+La commande \textit{git reset $--$hard} sans paramètre permet d'annuler tous les changements en cours dans votre dossier de travail. L'historique des modifications n'est pas touché!\\
 \medskip
 
-Si vous voulez créer un commit qui contient l'annulation d'un seul commit spécifique vous pouvez entrer: \textit{git revert -n <id>} 
+C'est une façon très pratique de repartir de 0 quand on n'est pas satisfait de ce qu'on a écrit...
 \end{frame}
 
-\begin{frame}{Commande: git revert -n <older\_id>\string^..<newer\_id>}
-L'avantage de cette méthode est que si vous voulez annuler l'annulation vous pouvez le faire en refaisant un git revert comme celui-ci:\\
-\textit{git revert -n <id\_du\_commit\_cree\_par\_le\_revert>}
-\medskip
-
-\underline{Note:} L'option -n permet d'empêcher la création automatique d'un commit (et donc de se donner le temps de réfléchir!)
-\end{frame}
-
-% Subsection:
-\subsection{Restaurer un seul fichier}
 \begin{frame}{git restore <file>}
-Permet de restaurer un fichier à l'état de son dernier commit.\\
+Permet de restaurer un seul fichier à l'état de son dernier commit.\\
 \medskip
 
 \underline{Cas concret:} Vous travaillez sur votre code, vous sauvegardez et la fin de la journée arrive. Vous ne voulez pas "commiter" vos changements car vous n'avez pas encore eu le temps de tester vos ajouts...\\
 \medskip
 
 Le lendemain matin vous reprenez votre code et il est truffé de bug. Vous voulez "revert" uniquement ce fichier (les autres ont l'air bon) => \textit{git restore <nom\_fichier>}
+\end{frame}
+
+% Subsection:
+\subsection{Annuler des changements apportés par des versions}
+\begin{frame}{Commande: git revert -n <older\_id>\string^..<newer\_id>}
+Cette commande crée un commit qui contient l'annulation de tous les changements des commits spécifiés dans l'intervalle \textit{<older\_id>\string^..<newer\_id>}
+\vspace{0.8cm}
+
+
+\textbf{IMPORTANT:} L'option "-n" évite la création automatique d'un commit. Cela présente plusieurs avantages:
+\begin{enumerate}
+	\item Ça laisse le temps de réfléchir à son annulation
+	\item Ça évite une "cascade" de commits d'annulations
+	\item Si vous voulez "annuler l'annulation" vous pouvez le faire très rapidement
+	      avec la commande \textit{git revert HEAD~1}
+\end{enumerate}
+\end{frame}
+
+
+
+
+%% --------------------- %%
+%%         BONUS         %%
+%% --------------------- %%
+
+\begin{frame}
+\huge
+\begin{center}
+\hrule
+\bigskip
+Bonus\footnote[frame]{Partie optionnelle: revenez-y après avoir utilisé Git quelques-temps et avoir géré des conflits en travaillant à plusieurs} sur la commande\\ \textit{git revert <id>}
+\bigskip
+\hrule
+\end{center}
+\normalsize
+\end{frame}
+
+\begin{frame}{Commande: git revert <id>}
+Si vous voulez annuler les changements apportés par une seule version en particulier vous pouvez le faire avec la commande \textit{git revert <id>}. Cependant, il est possible que vous ayiez à résoudre des conflits!\\
+\medskip
+
+En effet, \textit{git revert} annule un changement donné d'une version donnée en faisant l'inverse de ces-derniers dans votre dossier de travail. Or si Git trouve dans votre dossier de travail une valeur autre que celle présente dans la version choisie, Git ne saura pas s'il doit annuler cette modification aussi ou s'il doit conserver votre modification.
+\end{frame}
+
+\begin{frame}{Commande: git revert <id>}
+On pose le fichier suivant:
+\begin{center}
+	\includegraphics[scale=0.15]{gitRevert/gitRevert1.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Commande: git revert <id>}
+Je fais une première modification (je remplace 'Deux' par le chiffre '2') que je commite:
+\begin{center}
+	\includegraphics[scale=0.15]{gitRevert/gitRevert2.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Commande: git revert <id>}
+Après le commit je remplace 'Quatre' par le chiffre '4'. Je commite également cette modification:
+\begin{center}
+	\includegraphics[scale=0.15]{gitRevert/gitRevert3.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Commande: git revert <id>}
+Je choisis de "revert" au commit où j'ai changé 'Deux' par le chiffre '2'. Je n'ai ici aucun conflit:
+\begin{center}
+	\includegraphics[scale=0.15]{gitRevert/gitRevert4.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Commande: git revert <id>}
+J'annule ce dernier "revert" pour revenir à la situation où j'avais le chiffre '2'. Je remplace maintenant ce chiffre '2' par le mot 'DEUX' et je commite:
+\begin{center}
+	\includegraphics[scale=0.15]{gitRevert/gitRevert5.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Commande: git revert <id>}
+Lorsque je tente de "revert" à la version où 'Deux' avait été remplacé par '2' j'ai un conflit. Ceci est dû au fait que git trouve 'DEUX' dans mon dossier de travail et non '2' et qu'il ne sait pas ce qu'il doit faire:
+\begin{center}
+	\includegraphics[scale=0.15]{gitRevert/gitRevert6.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Commande: git revert <id>}
+
+\begin{center}
+	\includegraphics[scale=0.15]{gitRevert/gitRevert7.png}
+\end{center}
 \end{frame}
 
 \end{document}
