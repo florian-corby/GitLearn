@@ -17,9 +17,16 @@ Une fois que ce module 0 aura été bien compris, téléchargez et installez Git
     + [Consulter des versions](#log)
     + [Supprimer des versions](#revert)
   * [Git : mode d'emploi pour un usage seul, sans dépôt distant, avec une ou plusieurs branches](#git2)
+    + [Gérer les branches locales](#gestion_branches)
+    + [Utiliser la remise](#remise)
+    + [Boucle multi-branches locale de travail](#boucle_multiBranches)
   * [Git : mode d'emploi pour un usage seul, avec dépôt distant](#git3)
+    + [Démarrer son travail sur un clone](#clone)
+    + [Créer une branche distante](#creation_brancheDist)
+    + [Configurer un suivi de branche distante](#config_brancheDist)
   * [Git : mode d'emploi pour un usage collaboratif](#git4)
-
+    + [Gestion des interdictions de push](#interdiction_push)
+    + [Gestion des conflits](#conflits)
 <br>
 <br>
 <hr>
@@ -111,7 +118,7 @@ Vous pouvez sauter cet exercice pour l'instant. Revenez-y quand vous vous serez 
 #### La boucle locale de travail <a id="boucle_locale"></a>
 
 On rappelle la boucle de travail locale:
-![boucleLocale](./images/gitCommandFlow1.png)
+![boucleLocale](./images/gitCommandFlow_localLoop.png)
 
 Nous allons travailler cette boucle sur un projet test.
 
@@ -137,9 +144,9 @@ Comme vous pouvez déjà le constater la commande `git status` est une commande 
 - Retirez test2.txt du suivi des modifications avec la commande `git rm --cached test2.txt`
 - Faites un commit puis un `git status`. Que constatez-vous?
 
-La commande `git rm --cached <nomFichier>` n'est pas la commande que vous utiliserez le plus mais elle est très utile dès lors qu'on veut retirer un fichier du suivi comme un fichier binaire inutile, une fichier trop lourd (500Mo) pour être partagé, etc.
+La commande `git rm --cached <nomFichier>` n'est pas la commande que vous utiliserez le plus mais elle est très utile dès lors qu'on veut retirer un fichier du suivi comme un fichier binaire inutile, un fichier trop lourd (500Mo) pour être partagé, etc.
 
-Vous remarquerez également une problème: tant qu'on n'a pas dit à Git d'ignorer le fichier test2.txt on ne pourra pas utiliser la commande `git add -A` qui est pourtant bien pratique.
+Vous remarquerez également un problème: tant qu'on n'a pas dit à Git d'ignorer le fichier test2.txt on ne pourra pas utiliser la commande `git add -A` qui est pourtant bien pratique.
 
 Pour dire à git d'ignorer ce fichier on va créer un fichier .gitignore.
 
@@ -181,18 +188,20 @@ Il se peut que vous ayiez envie de "visiter" votre projet dans une version anté
 
 <br>
 
-#### Supprimer des versions <a id="revert"></a>
+#### Annuler des versions <a id="revert"></a>
 
-Il arrive parfois qu'on veuille annuler un changement. Pour ce faire il y a plusieurs méthodes. L'une de ces méthodes est la méthode "sûre" car elle ne fait qu'enrichir l'historique des versions en ajoutant des versions enregistrant vos annulations. Cette méthode est celle de la commande `git revert <id>`
+Il arrive parfois qu'on veuille annuler une série de changements pour "revenir en arrière". Pour ce faire il y a plusieurs méthodes. L'une de ces méthodes est la méthode "sure" car elle ne fait qu'enrichir l'historique des versions en ajoutant des versions enregistrant vos annulations. Cette méthode est celle de la commande `git revert -n <old_id>^..HEAD`
 
 ###### Exercice
 - Créez un fichier testRevert.txt
-- Écrivez dedans 'toto' puis commitez. Écrivez ensuite 'titi' et commitez. Écrivez 'tata' et commitez. Enfin écrivez 'tutu' et commitez
+- Écrivez dedans 'un' puis commitez. Écrivez ensuite 'deux' et commitez. Écrivez 'trois' et commitez. Enfin écrivez 'quatre' et commitez
 - Entrez `git log` pour que vous constatiez l'état courant de votre historique
-- Choisissez le tout dernier commit parmi ceux que vous venez d'ajouter et faites un `git revert` avec l'identifiant de ce commit
+- Choisissez le tout dernier commit parmi ceux que vous venez d'ajouter et faites un `git revert -n <old_id>^..HEAD` avec l'identifiant de ce commit
+- Faites un `git status` et consultez votre testRevert.txt. Que constatez-vous?
+- Commitez votre annulation
 - Refaites un `git log`
-- Annulez le tout dernier commit en utilisant un chemin relatif vers le commit cette fois-ci
-- Refaites un `git log`
+- Entrez `git revert HEAD` puis faites un `git log`. Que constatez-vous?
+- Essayez maintenant de "revert" le projet jusqu'à son premier commit. Si vous avez une erreur quelle est elle? (Indice: À quoi sert le "^" ?)
 
 
 <br>
@@ -206,7 +215,18 @@ Il arrive parfois qu'on veuille annuler un changement. Pour ce faire il y a plus
 [Retour à la table des matières](#bienvenue)
 
 
+#### Gérer les branches locales <a id="gestion_branches"></a>
 
+
+
+#### Utiliser la remise <a id="remise"></a>
+
+
+
+#### La boucle locale de travail multi-branches <a id="boucle_multiBranches"></a>
+
+On rappelle la boucle de travail locale multi-branches:
+![boucleLocale](./images/gitCommandFlow_multilocalLoop.png)
 
 
 <br>
@@ -220,8 +240,11 @@ Il arrive parfois qu'on veuille annuler un changement. Pour ce faire il y a plus
 [Retour à la table des matières](#bienvenue)
 
 
+#### Démarrer sur un clone <a id="clone"></a>
 
+#### Créer une branche distante <a id="creation_brancheDist"></a>
 
+#### Configurer un suivi de branche distante <a id="config_brancheDist"></a>
 
 <br>
 <br>
@@ -232,6 +255,10 @@ Il arrive parfois qu'on veuille annuler un changement. Pour ce faire il y a plus
 <!-- ======================================================================= -->
 ### Git : mode d'emploi pour un usage collaboratif<a id="git4"></a>
 [Retour à la table des matières](#bienvenue)
+
+#### Les interdictions de Push <a id="interdiction_push"></a>
+
+#### Gestion des conflits d'édition <a id="conflits"></a>
 
 
 <br>
