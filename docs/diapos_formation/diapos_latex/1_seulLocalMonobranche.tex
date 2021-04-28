@@ -56,8 +56,8 @@ and then push using the remote name
     \end{mdframed}
 \end{frame}
 
-\begin{frame}[fragile]
-\frametitle{git help [<nomDeLaCommande>]}
+\begin{frame}[fragile]{git help <nomDeLaCommande>}
+Les commandes Git ont souvent des options qui modifient leurs comportements. Si vous utilisez souvent une commande vous aurez certainement envie d'ouvrir son manuel grâce à \textit{git help <nomCmd>} pour connaître ses options et syntaxes alternatives:
 \begin{mdframed}[style=Bash]
     \begin{lstlisting}[style=Bash, caption={Extrait d'un appel de git help sur la commande "add"}]
 crex@crex:~/projects/test$ git help add
@@ -67,8 +67,14 @@ NAME
        git-add - Add file contents to the index
     \end{lstlisting}
 \end{mdframed}
+\underline{Note:} Pour les utilisateurs de Linux, \textit{git help <nomCmd>} est l'équivalent du \textit{man <nomCmd>} mais pour Git!
+\end{frame}
 
-\textbf{\underline{IMPORTANT:}} Le nom de la commande est optionnel. Si vous entrez uniquement "\textbf{git help -a}" vous aurez toutes les commandes git qui existent. Celles que nous aborderont sont dans la premère catégorie 'Main Porcelain Command'
+\begin{frame}{git help [-a]}
+\textbf{\underline{IMPORTANT:}} Le nom de la commande est optionnel avec \textit{git help}. Si vous entrez simplement \textit{git help} vous aurez un résumé des commandes les plus courantes.\\
+\medskip
+
+Si vous entrez uniquement "\textbf{git help -a}" vous aurez toutes les commandes git qui existent. Celles que nous aborderont sont dans la premère catégorie 'Main Porcelain Command'
 \end{frame}
 
 \begin{frame}
@@ -436,8 +442,8 @@ La commande "git checkout <nom\_commit>" permet de déplacer le pointeur "HEAD".
 \begin{frame}{À propos des noms de commit}
 Il y a plusieurs façons d'obtenir un nom de commit:
 \begin{itemize}
-    \item Le nom absolu: "git log" + vous prenez les 6 premiers caractères (inutile de donner toute la clef!)
-    \item Le nom relatif: Exemple HEAD$\sim$2\string^3
+    \item Le nom absolu: "git log" + vous prenez les 4 ou 5 premiers caractères (inutile de donner toute la clef!)
+    \item Le nom relatif: Exemple HEAD$\sim$2\string^3 => il vaut pour un numéro de commit! Seule différence: il est relatif
 \end{itemize}
 \end{frame}
 
@@ -510,27 +516,50 @@ HEAD is now at a1a8a9d Initial commit
     \tableofcontents[sectionstyle=show/hide,subsectionstyle=show/show/hide]
   \end{frame}
 }
+\section{Annuler des versions}
+
+
+% Subsection:
+\subsection{Annulez au lieu de supprimer!}
+\begin{frame}{Commande: git revert -n <older\_id>\string^..<newer\_id>}
+Cette commande crée un commit qui contient l'annulation de tous les changements des commits spécifiés dans l'intervalle \textit{<older\_id>\string^..<newer\_id>}\\
+\medskip 
+C'est-à-dire l'intervalle: [<older\_id>; <newer\_id>]
+\vspace{0.7cm}
+
+
+\textbf{IMPORTANT:} L'option "-n" évite la création automatique d'un commit. Cela présente plusieurs avantages:
+\begin{enumerate}
+	\item Ça laisse le temps de réfléchir à son annulation
+	\item Ça évite une "cascade" de commits d'annulations
+	\item Si vous voulez "annuler l'annulation" vous pouvez le faire très rapidement
+	      avec la commande \textit{git revert HEAD}
+\end{enumerate}
+\end{frame}
+
+
+% Subsection:
+\subsection{Annuler un changement apporté par une version donnée}
+\begin{frame}
+	Cette question ne sera pas abordée ici car elle demande une assez bonne connaissance de Git et notamment de la résolution des conflits. Elle est abordée dans le module "bonus" associé à ce module. 
+\end{frame}
+
+
+
+%% --------------------- %%
+%%        SECTION        %%
+%% --------------------- %%
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Table of Contents}
+    \tableofcontents[sectionstyle=show/hide,subsectionstyle=show/show/hide]
+  \end{frame}
+}
 \section{Supprimer des changements ou des versions}
 
 % Subsection:
-\subsection{Supprimer définitivement des changements ou des versions}
-\begin{frame}{Commande: git reset $--$hard <numero\_commit>}
-La commande \textit{git reset $--$hard} permet d'annuler tous les commits qui ont été faits après le commit spécifié et de faire revenir ses fichiers à l'état du commit spécifié.
-\medskip
-
-Il n'est pas utile d'indiquer l'entièreté du numéro du commit, seuls les 6 premiers caractères suffisent.
-\medskip
-
-\textbf{ATTENTION!} C'est une commande très dangereuse... Ce qui est perdu est perdu définitivement! À n'utiliser qu'en cas de dernier recours.
-\end{frame}
-
-\begin{frame}{Commande: git reset $--$hard (sans paramètre)}
-La commande \textit{git reset $--$hard} sans paramètre permet d'annuler tous les changements en cours dans votre dossier de travail. L'historique des modifications n'est pas touché!\\
-\medskip
-
-C'est une façon très pratique de repartir de 0 quand on n'est pas satisfait de ce qu'on a écrit...
-\end{frame}
-
+\subsection{Supprimer définitivement des changements sur un seul fichier}
 \begin{frame}{git restore <file>}
 Permet de restaurer un seul fichier à l'état de son dernier commit.\\
 \medskip
@@ -541,21 +570,29 @@ Permet de restaurer un seul fichier à l'état de son dernier commit.\\
 Le lendemain matin vous reprenez votre code et il est truffé de bug. Vous voulez "revert" uniquement ce fichier (les autres ont l'air bon) => \textit{git restore <nom\_fichier>}
 \end{frame}
 
+
 % Subsection:
-\subsection{Annuler des changements apportés par des versions}
-\begin{frame}{Commande: git revert -n <older\_id>\string^..<newer\_id>}
-Cette commande crée un commit qui contient l'annulation de tous les changements des commits spécifiés dans l'intervalle \textit{<older\_id>\string^..<newer\_id>}
-\vspace{0.8cm}
+\subsection{Supprimer définitivement des changements sur tous les fichiers}
+\begin{frame}{Commande: git reset $--$hard (sans paramètre)}
+La commande \textit{git reset $--$hard} sans paramètre permet d'annuler tous les changements en cours dans votre dossier de travail. L'historique des modifications n'est pas touché!\\
+\medskip
 
-
-\textbf{IMPORTANT:} L'option "-n" évite la création automatique d'un commit. Cela présente plusieurs avantages:
-\begin{enumerate}
-	\item Ça laisse le temps de réfléchir à son annulation
-	\item Ça évite une "cascade" de commits d'annulations
-	\item Si vous voulez "annuler l'annulation" vous pouvez le faire très rapidement
-	      avec la commande \textit{git revert HEAD$\sim$1}
-\end{enumerate}
+C'est une façon très pratique de repartir de 0 quand on n'est pas satisfait de ce qu'on a écrit...
 \end{frame}
+
+
+% Subsection:
+\subsection{Supprimer définitivement des versions}
+\begin{frame}{Commande: git reset $--$hard <numero\_commit>}
+La commande \textit{git reset $--$hard <numero\_commit>} permet d'annuler tous les commits qui ont été faits après le commit spécifié et de faire revenir ses fichiers à l'état du commit spécifié.
+\medskip
+
+Il n'est pas utile d'indiquer l'entièreté du numéro du commit, seuls les 4 (ou 5) premiers caractères suffisent.
+\medskip
+
+\textbf{ATTENTION!} C'est une commande très dangereuse... Ce qui est perdu est perdu définitivement! À n'utiliser qu'en cas de dernier recours.
+\end{frame}
+
 
 
 \end{document}
