@@ -33,68 +33,6 @@
     \tableofcontents[sectionstyle=show/hide,subsectionstyle=show/show/hide]
   \end{frame}
 }
-\section{Configurer le suivi d'une branche distante}
-
-% Subsection:
-\subsection{Cloner un projet}
-
-\begin{frame}[fragile]
-\frametitle{Commande: git clone <url>}
-\begin{mdframed}[style=Bash]
-    \begin{lstlisting}[style=Bash, caption={Exemple de git clone}]
-crex@crex:~/projects$ git clone https://github.com/torvalds/linux.git
-Cloning into 'linux'...
-remote: Enumerating objects: 7886755, done.
-remote: Total 7886755 (delta 0), reused 0 (delta 0), pack-reused 7886755
-Receiving objects: 100% (7886755/7886755), 2.98 GiB | 1.12 MiB/s, done.
-Resolving deltas: 100% (6548657/6548657), done.
-Updating files: 100% (71277/71277), done.
-    \end{lstlisting}
-    \end{mdframed}
-\end{frame}
-
-\subsection{Suivre une branche distante}
-\begin{frame}
-\frametitle{Commandes: git remote add <al> <url> / git remote rm <al>}
-La première commande "git remote add" suivi d'un alias et d'une url permettent de suivre la branche distante désignée par l'url.\\
-\smallskip
-
-Un alias est un comme un pseudo donné à l'url il permet:
-\begin{enumerate}
-    \item De spécifier où faire le push d'une branche:\\ git push <al> <nomBrancheDistante>
-    \item De spécifier quelle branche du dépôt distant on veut pull:\\ git pull <al> <nomBrancheDistante>
-    \item De supprimer un suivi de branche distante:\\ git remote rm <al>
-    \item De spécifier une branche où on veut push/pull par défaut:\\ git push $--$set-upstream <al> <nomBrancheDistante>
-\end{enumerate}
-\end{frame}
-
-\begin{frame}[fragile]{Commande: git remote -v}
-Comme pour les branches locales on peut vouloir savoir quelle branche distante on suit actuellement ou encore l'ensemble des alias vers des url que contient notre branche locale. Ces informations sont accessibles par la commande \textit{git remote -v}.
-\medskip
-
-Exemple:
-\begin{mdframed}[style=Bash]
-\begin{lstlisting}[style=Bash, caption=Exemple d'output de la commande git remote -v]
-crex@crex:~/projects/GitLearn(main)$ git remote -v
-origin	git@github.com:Chuxclub/GitLearn.git (fetch)
-origin	git@github.com:Chuxclub/GitLearn.git (push)
-\end{lstlisting}
-\end{mdframed}
-
-\end{frame}
-
-
-
-%% --------------------- %%
-%%        SECTION        %%
-%% --------------------- %%
-\AtBeginSection[]
-{
-  \begin{frame}
-    \frametitle{Table of Contents}
-    \tableofcontents[sectionstyle=show/hide,subsectionstyle=show/show/hide]
-  \end{frame}
-}
 \section{Synchroniser son travail}
 
 % Subsection:
@@ -137,9 +75,124 @@ La commande "git push" permet de mettre à jour la branche distante en incorpora
 \textbf{ATTENTION:} 
 \begin{enumerate}
     \item Il faut avoir fait un git pull avant de l'utiliser
-    \item Il faut avoir les droits
+    \item Il faut avoir les droits (cf. Module sur la collaboration avec Git)
 \end{enumerate}
 \end{frame}
+
+
+
+%% --------------------- %%
+%%        SECTION        %%
+%% --------------------- %%
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Table of Contents}
+    \tableofcontents[sectionstyle=show/hide,subsectionstyle=show/show/hide]
+  \end{frame}
+}
+\section{Configurer le suivi d'une branche distante}
+
+% Subsection:
+\subsection{Cloner un projet}
+\begin{frame}[fragile]{Commande: git clone <url>}
+\begin{mdframed}[style=Bash]
+    \begin{lstlisting}[style=Bash, caption={Exemple de git clone}]
+crex@crex:~/projects$ git clone https://github.com/torvalds/linux.git
+Cloning into 'linux'...
+remote: Enumerating objects: 7886755, done.
+remote: Total 7886755 (delta 0), reused 0 (delta 0), pack-reused 7886755
+Receiving objects: 100% (7886755/7886755), 2.98 GiB | 1.12 MiB/s, done.
+Resolving deltas: 100% (6548657/6548657), done.
+Updating files: 100% (71277/71277), done.
+    \end{lstlisting}
+    \end{mdframed}
+\end{frame}
+
+
+% Subsection:
+\subsection{Récupérer les autres branches distantes du projet cloné}
+\begin{frame}[fragile]{Récupérer les autres branches distantes du projet cloné}
+Quand vous récupérez un projet cloné vous récupérez aussi ses autres branches. Seulement elles sont cachées:
+\begin{mdframed}[style=Bash]
+    \begin{lstlisting}[style=Bash, caption={Afficher les branches cachées}]
+crex@crex:~/projects/tmp/Banquise-Game(master)$ git branch -a
+* master
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/dev
+  remotes/origin/master
+    \end{lstlisting}
+\end{mdframed}
+\end{frame}
+
+\begin{frame}[fragile]{Récupérer les autres branches distantes du projet cloné}
+Pour travailler sur ces branches et configurer automatiquement leurs suivis vous pouvez vous rendre directement dessus avec un \textit{git checkout <nomBranche>}. Attention! Le <nomBranche> doit être exactement celui de la branche distante:
+\begin{mdframed}[style=Bash]
+    \begin{lstlisting}[style=Bash, caption={Suivre une branche distante du projet}]
+crex@crex:~/projects/tmp/Banquise-Game(master)$ git checkout dev
+Branch 'dev' set up to track remote branch 'dev' from 'origin'.
+Switched to a new branch 'dev'
+    \end{lstlisting}
+\end{mdframed}
+\end{frame}
+
+
+% Subsection:
+\subsection{Créer une branche distante depuis Git}
+\begin{frame}[fragile]{Créer une branche distante depuis Git}
+Mon conseil: ne passez pas par GitHub pour créer une branche distante. Dans Git, vous créez une branche (ou si elle existe déjà vous vous y rendez) et vous entrez la commande \textit{git push <aliasURL> <nomBranche>}:
+\begin{mdframed}[style=Bash]
+    \begin{lstlisting}[style=Bash, caption={Ajouter une branche distante au projet depuis Git}]
+crex@crex:~/projects/tmp/Banquise-Game(dev)$ git checkout -b exp
+ Switched to a new branch 'exp'
+crex@crex:~/projects/tmp/Banquise-Game(exp)$ git branch -a
+  dev
+* exp
+  master
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/dev
+  remotes/origin/master
+crex@crex:~/projects/tmp/Banquise-Game(exp)$ git push origin exp
+ Total 0 (delta 0), reused 0 (delta 0)
+ remote: 
+ remote: 
+ To github.com:Chuxclub/Banquise-Game.git
+  * [new branch]      exp -> exp
+    \end{lstlisting}
+\end{mdframed}
+\end{frame}
+
+
+\subsection{Suivre une branche distante}
+\begin{frame}
+\frametitle{Commandes: git remote add <al> <url> / git remote rm <al>}
+La première commande "git remote add" suivi d'un alias et d'une url permettent de suivre la branche distante désignée par l'url.\\
+\smallskip
+
+Un alias est un comme un pseudo donné à l'url il permet:
+\begin{enumerate}
+    \item De spécifier où faire le push d'une branche:\\ git push <al> <nomBrancheDistante>
+    \item De spécifier quelle branche du dépôt distant on veut pull:\\ git pull <al> <nomBrancheDistante>
+    \item De supprimer un suivi de branche distante:\\ git remote rm <al>
+    \item De spécifier une branche où on veut push/pull par défaut:\\ git push $--$set-upstream <al> <nomBrancheDistante>
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]{Commande: git remote -v}
+Comme pour les branches locales on peut vouloir savoir quelle branche distante on suit actuellement ou encore l'ensemble des alias vers des url que contient notre branche locale. Ces informations sont accessibles par la commande \textit{git remote -v}.
+\medskip
+
+Exemple:
+\begin{mdframed}[style=Bash]
+\begin{lstlisting}[style=Bash, caption=Exemple d'output de la commande git remote -v]
+crex@crex:~/projects/GitLearn(main)$ git remote -v
+origin	git@github.com:Chuxclub/GitLearn.git (fetch)
+origin	git@github.com:Chuxclub/GitLearn.git (push)
+\end{lstlisting}
+\end{mdframed}
+
+\end{frame}
+
 
 
 %% --------------------- %%
