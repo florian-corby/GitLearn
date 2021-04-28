@@ -553,83 +553,9 @@ Cette commande crée un commit qui contient l'annulation de tous les changements
 	\item Ça laisse le temps de réfléchir à son annulation
 	\item Ça évite une "cascade" de commits d'annulations
 	\item Si vous voulez "annuler l'annulation" vous pouvez le faire très rapidement
-	      avec la commande \textit{git revert HEAD~1}
+	      avec la commande \textit{git revert HEAD$\sim$1}
 \end{enumerate}
 \end{frame}
 
-
-
-
-%% --------------------- %%
-%%         BONUS         %%
-%% --------------------- %%
-
-\begin{frame}
-\huge
-\begin{center}
-\hrule
-\bigskip
-Bonus\footnote[frame]{Partie optionnelle: revenez-y après avoir utilisé Git quelques-temps et avoir géré des conflits en travaillant à plusieurs} sur la commande\\ \textit{git revert <id>}
-\bigskip
-\hrule
-\end{center}
-\normalsize
-\end{frame}
-
-\begin{frame}{Commande: git revert <id>}
-Si vous voulez annuler les changements apportés par une seule version en particulier vous pouvez le faire avec la commande \textit{git revert <id>}. Cependant, il est possible que vous ayiez à résoudre des conflits!\\
-\medskip
-
-En effet, \textit{git revert} annule un changement donné d'une version donnée en faisant l'inverse de ces-derniers dans votre dossier de travail. Or si Git trouve dans votre dossier de travail une valeur autre que celle présente dans la version choisie, Git ne saura pas s'il doit annuler cette modification aussi ou s'il doit conserver votre modification.
-\end{frame}
-
-\begin{frame}{Commande: git revert <id>}
-On pose le fichier suivant:
-\begin{center}
-	\includegraphics[scale=0.15]{gitRevert/gitRevert1.png}
-\end{center}
-\end{frame}
-
-\begin{frame}{Commande: git revert <id>}
-Je fais une première modification (je remplace 'Deux' par le chiffre '2') que je commite:
-\begin{center}
-	\includegraphics[scale=0.15]{gitRevert/gitRevert2.png}
-\end{center}
-\end{frame}
-
-\begin{frame}{Commande: git revert <id>}
-Après le commit je remplace 'Quatre' par le chiffre '4'. Je commite également cette modification:
-\begin{center}
-	\includegraphics[scale=0.15]{gitRevert/gitRevert3.png}
-\end{center}
-\end{frame}
-
-\begin{frame}{Commande: git revert <id>}
-Je choisis de "revert" au commit où j'ai changé 'Deux' par le chiffre '2'. Je n'ai ici aucun conflit:
-\begin{center}
-	\includegraphics[scale=0.15]{gitRevert/gitRevert4.png}
-\end{center}
-\end{frame}
-
-\begin{frame}{Commande: git revert <id>}
-J'annule ce dernier "revert" pour revenir à la situation où j'avais le chiffre '2'. Je remplace maintenant ce chiffre '2' par le mot 'DEUX' et je commite:
-\begin{center}
-	\includegraphics[scale=0.15]{gitRevert/gitRevert5.png}
-\end{center}
-\end{frame}
-
-\begin{frame}{Commande: git revert <id>}
-Lorsque je tente de "revert" à la version où 'Deux' avait été remplacé par '2' j'ai un conflit. Ceci est dû au fait que git trouve 'DEUX' dans mon dossier de travail et non '2' et qu'il ne sait pas ce qu'il doit faire:
-\begin{center}
-	\includegraphics[scale=0.15]{gitRevert/gitRevert6.png}
-\end{center}
-\end{frame}
-
-\begin{frame}{Commande: git revert <id>}
-
-\begin{center}
-	\includegraphics[scale=0.15]{gitRevert/gitRevert7.png}
-\end{center}
-\end{frame}
 
 \end{document}
