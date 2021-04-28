@@ -217,9 +217,35 @@ Il arrive parfois qu'on veuille annuler une série de changements pour "revenir 
 
 #### Gérer les branches locales <a id="gestion_branches"></a>
 
+Les branches sont des "ensembles de versions alternatives" qui dérivent d'une version d'une autre branche.
+
+Les branches ont un intérêt majeur dans Git car elles permettent de programmer des fonctionnalités et des services sans affecter le code principal!
+
+###### Exercice
+- Sur quelle branche êtes-vous?
+- Créez une branche avec le nom de votre choix
+- Passez sur cette branche
+- Écrivez un peu de code ou de texte et faites quelques commits. Puis faites un `git log`.
+- Revenez sur votre branche principale et consultez les fichiers que vous aviez édité dans la branche précédente. Que constatez-vous?
+- Faites un `git log`. Que constatez-vous?
+- Fusionnez la branche que vous avez créé avec la branche principale
+- Consultez les fichiers précédentes et faites un `git log`. Que constatez-vous?
+- Supprimez la branche que vous aviez créé
+
 
 
 #### Utiliser la remise <a id="remise"></a>
+
+La remise permet d'enregistrer du travail en cours tout en éviter de "commiter" celle-ci. Elle est très pratique dès qu'on veut utiliser une commande qui nécessite un répertoire de travail "propre" (ie. qui corresponde au tout dernier commit), comme un `git revert` ou encore un changement de branche.
+
+###### Exercice
+- Créez une branche de développement nommée "dev" (ne passez pas dessus pour l'instant!)
+- Dans votre branche principale, éditez un fichier
+- Faites un `git status` puis mettez vos modifications dans la remise. Refaites un `git status`
+- Listez les éléments de votre remise
+- Allez sur la branche "dev"
+- Sortez vos modifications de la remise
+- Si ce n'est pas déjà fait, videz la remise
 
 
 
@@ -229,6 +255,13 @@ On rappelle la boucle de travail locale multi-branches:
 ![boucleLocale](./images/gitCommandFlow_multilocalLoop.png)
 
 
+On va ici illustrer une boucle classique de travail avec des branches locales:
+
+###### Exercice
+- Rendez-vous sur votre branche de développement
+- Éditez un fichier et committez (2 ou 3 commits suffiront)
+- Revenez sur votre branche principale et fusionnez
+- Revenez sur votre branche de développement et codez
 <br>
 <br>
 <hr>
@@ -242,9 +275,27 @@ On rappelle la boucle de travail locale multi-branches:
 
 #### Démarrer sur un clone <a id="clone"></a>
 
+Quand vous clonez un projet vous êtes positionné directement sur la branche principale. Comme nous l'avons vu il faut cependant éviter de travailler directement sur la branche principale...
+
+###### Exercice
+- Clonez la [copie de GitLearn](https://github.com/AutoDiLab/GitLearn)
+- Depuis le clone (et dans Git) listez toutes les branches distantes du clone
+- Démarrez votre travail directement sur une de ces branches distantes
+
 #### Créer une branche distante <a id="creation_brancheDist"></a>
 
+###### Exercice
+- Appliquez la procédure indiquée dans les diapos pour créer une nouvelle branche distante
+
+
 #### Configurer un suivi de branche distante <a id="config_brancheDist"></a>
+
+###### Exercice
+- Créez une nouvelle branche locale et allez dessus
+- Dans votre navigateur web, dans votre dépôt distant, créez une nouvelle branche distante
+- Configurez votre branche locale de façon à ce qu'elle suive cette branche distante
+- Faites quelques éditions/commits et essayez de "pusher" vos changements sur une autre branche distante que la vôtre.
+- Arrêtez le suivi de la branche distante et essayez de "pusher" de nouveau. Que constatez-vous?
 
 <br>
 <br>
