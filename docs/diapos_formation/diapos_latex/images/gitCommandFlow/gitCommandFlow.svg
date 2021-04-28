@@ -16,7 +16,7 @@
    version="1.1"
    id="svg8"
    inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
-   sodipodi:docname="git_workflow.svg"
+   sodipodi:docname="gitCommandFlow.svg"
    inkscape:export-filename="/home/crex/projects/GitLearn/docs/diapos_formation/diapos_latex/images/gitCommandFlow/gitCommandFlow.png"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96">
@@ -29,11 +29,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.49497475"
-     inkscape:cx="855.84528"
-     inkscape:cy="509.5311"
+     inkscape:zoom="1.979899"
+     inkscape:cx="1206.791"
+     inkscape:cy="239.58864"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="g1503"
      showgrid="false"
      inkscape:window-width="1920"
      inkscape:window-height="1016"
@@ -59,7 +59,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -443,10 +443,10 @@
            id="flowRegion819-7-4-3-6-3-6-6"><rect
              y="322.51968"
              x="860"
-             height="72.85714"
-             width="188.57143"
+             height="71.341919"
+             width="194.63232"
              id="rect821-4-7-0-8-1-6-7" /></flowRegion><flowPara
-           id="flowPara823-52-4-7-8-4-4-5">git revert -n &lt;id&gt;^..&lt;id&gt;</flowPara></flowRoot>      <image
+           id="flowPara823-52-4-7-8-4-4-5">git revert -n &lt;id&gt;^..HEAD</flowPara></flowRoot>      <image
          y="229.02934"
          x="252.43292"
          id="image3153"

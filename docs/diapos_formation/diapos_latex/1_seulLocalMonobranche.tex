@@ -521,11 +521,13 @@ HEAD is now at a1a8a9d Initial commit
 
 % Subsection:
 \subsection{Annulez au lieu de supprimer!}
-\begin{frame}{Commande: git revert -n <older\_id>\string^..<newer\_id>}
-Cette commande crée un commit qui contient l'annulation de tous les changements des commits spécifiés dans l'intervalle \textit{<older\_id>\string^..<newer\_id>}\\
+\begin{frame}{Commande: git revert -n <older\_id>\string^..HEAD}
+Cette commande crée un commit qui contient l'annulation de tous les changements des commits spécifiés dans l'intervalle \textit{<older\_id>\string^..HEAD}\\
 \medskip 
-C'est-à-dire l'intervalle: [<older\_id>; <newer\_id>]
-\vspace{0.7cm}
+C'est-à-dire l'intervalle: ]<parent\_of\_older\_id>; HEAD]\\ \hspace{3.9cm}(ie. [<older\_id>; HEAD])\\ 
+\medskip
+Retirez le "\string^" pour obtenir l'intervalle ]<older\_id>; HEAD]
+\vspace{0.4cm}
 
 
 \textbf{IMPORTANT:} L'option "-n" évite la création automatique d'un commit. Cela présente plusieurs avantages:
