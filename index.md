@@ -14,8 +14,9 @@ Une fois que ce module 0 aura été bien compris, téléchargez et installez Git
   * [Git : mode d'emploi pour un usage seul, sans dépôt distant, sur une seule branche](#git1)
     + [Configuration de Git](#configuration)
     + [Boucle locale de travail](#boucle_locale)
-    + [Consulter des versions](#log)
-    + [Supprimer des versions](#revert)
+    + [Consulter des changements ou des versions](#log)
+    + [Annuler des versions](#revert)
+    + [Supprimer des changements ou des versions](#reset)
   * [Git : mode d'emploi pour un usage seul, sans dépôt distant, avec une ou plusieurs branches](#git2)
     + [Gérer les branches locales](#gestion_branches)
     + [Utiliser la remise](#remise)
@@ -27,6 +28,7 @@ Une fois que ce module 0 aura été bien compris, téléchargez et installez Git
   * [Git : mode d'emploi pour un usage collaboratif](#git4)
     + [Gestion des interdictions de push](#interdiction_push)
     + [Gestion des conflits](#conflits)
+  * [Intégration de Git dans un de vos projets collaboratifs](#projet)
 <br>
 <br>
 <hr>
@@ -67,8 +69,6 @@ Pour revenir au dossier précédent entez `cd -`, pour remonter d'un dossier par
 - Remontez au 3ième dossier parent avec `cd ../../../`
 
 <ins>Note:</ins> Si par malheur un de vos dossier commence par le caractère "-" vous pouvez échapper à votre funeste sort en "échappant" le tiret par un antislash, comme ceci: `cd \-nomDossierAvecTiret`.
-
-
 <br>
 <br>
 <hr>
@@ -160,10 +160,9 @@ Pour dire à git d'ignorer ce fichier on va créer un fichier .gitignore.
 
 Merci à vous d'être arrivé jusqu'ici! Vous avez maintenant toutes les commandes de la boucle locale de travail! Vous pouvez d'ores et déjà versionner n'importe lequel de vos projets! :smiley:
 
-
 <br>
 
-#### Consulter des versions <a id="log"></a>
+#### Consulter des changements ou des versions <a id="log"></a>
 
 La commande `git blame <nomFichier>` permet de savoir qui a fait quoi sur un fichier donné avec une très grande précision. Mais pour l'instant vous travaillez seul, aussi cette commande n'a que peu d'intérêt pour le moment. En revanche maintenant que nous avons quelques commits nous allons explorer l'historique des versions.
 
@@ -185,7 +184,6 @@ Il se peut que vous ayiez envie de "visiter" votre projet dans une version anté
 - Revenez à votre tout dernier commit en utilisant le nom de la branche sur laquelle vous êtes (`git branch` pour obtenir la liste de vos branches et celles sur laquelle vous vous trouvez)
 - Essayez de revenir à cette même version antérieure en utilisant un chemin relatif vers le commit que vous avez choisi puis revenez à votre tout dernier commit comme précédemment
 
-
 <br>
 
 #### Annuler des versions <a id="revert"></a>
@@ -203,7 +201,37 @@ Il arrive parfois qu'on veuille annuler une série de changements pour "revenir 
 - Entrez `git revert HEAD` puis faites un `git log`. Que constatez-vous?
 - Essayez maintenant de "revert" le projet jusqu'à son premier commit. Si vous avez une erreur quelle est elle? (Indice: À quoi sert le "^" ?)
 
+<br>
 
+#### Supprimer des changements ou des versions <a id="reset"></a>
+<br>
+:warning: Il est très très lourdement déconseillé de supprimer des versions! Vous risquez de perdre du travail. :warning:
+<br>
+<br>
+En revanche il est tout à fait possible que vous ayiez envie de supprimer des modifications qui sont en cours dans votre répertoire de travail ou encore de retirer du staging des éléments que vous auriez préparé pour un commit ou un suivi.
+<br>
+<br>
+On commence avec la suppression de fichiers du staging:
+
+###### Exercice
+- Écrivez dans plusieurs fichiers et sauvegardez (ne committez pas!)
+- Faites un `git add -A` puis faites un `git status`
+- Enfin, faites un `git reset` suivi d'un `git status`. Consultez les fichiers que vous aviez édité. Que constatez-vous?
+- Refaites la manipulation mais essayez de ne retirer d'une staging qu'un seul des fichiers que vous avez ajouté
+
+On continue avec la suppression de modifications en cours:
+###### Exercice
+- Écrivez dans plusieurs fichiers et sauvegardez
+- Ajoutez-les au staging et faites un `git status`
+- Exécutez la commande `git reset --hard`
+- Refaites un `git status` puis consultez vos fichiers. Que constatez-vous?
+- Comment restaurer un seul fichier?
+
+:warning: On rentre dans la zone de danger:
+###### Exercice
+- Faites un ou deux commits
+- Utilisez la commande `git reset --hard <id>` pour faire disparaître ces deux commits inutiles
+- Quelle est la différence avec `git revert <id>^..HEAD` ? Quel peut être l'intérêt de `git reset --hard <id>` ? Comment peut-on s'assurer qu'on ne supprime rien d'important?
 <br>
 <br>
 <hr>
@@ -292,11 +320,10 @@ Quand vous clonez un projet vous êtes positionné directement sur la branche pr
 
 ###### Exercice
 - Créez une nouvelle branche locale et allez dessus
-- Dans votre navigateur web, dans votre dépôt distant, créez une nouvelle branche distante
+- Dans votre dépôt distant, créez une nouvelle branche distante
 - Configurez votre branche locale de façon à ce qu'elle suive cette branche distante
 - Faites quelques éditions/commits et essayez de "pusher" vos changements sur une autre branche distante que la vôtre.
 - Arrêtez le suivi de la branche distante et essayez de "pusher" de nouveau. Que constatez-vous?
-
 <br>
 <br>
 <hr>
@@ -309,9 +336,29 @@ Quand vous clonez un projet vous êtes positionné directement sur la branche pr
 
 #### Les interdictions de Push <a id="interdiction_push"></a>
 
+###### Exercice
+- Choisissez un coéquipier pour qu'il édite un fichier, commit et push ce changement sur le dépôt distant
+- Éditez maintenant un fichier, committez et pushez vos changements
+- Pourquoi ne pouvez-vous pas pusher vos changements? Est-il possible de provoquer cette situation seul?
+
+
 #### Gestion des conflits d'édition <a id="conflits"></a>
 
-
+###### Exercice
+- Choisissez un coéquipier pour qu'il édite un fichier, commit et push ce changement sur le dépôt distant
+- Éditez maintenant un fichier __au même endroit__ que votre coéquipier, committez et récupérez les changements de votre coéquipier
+- Que se passe-t-il? Pourquoi Git ne peut-il pas résoudre ce problème automatiquement? Comment le résoud-t-on?
+- Une fois que le problème est résolu, committez et pushez vos changements
+- Demandez à votre coéquipier de récupérer les changements et de revenir l'historique des versions et le contenu du fichier édité. Que constate-t-il?
 <br>
 <br>
 <hr>
+
+#### Intégration de Git dans un de vos projets collaboratifs<a id="projet"></a>
+[Retour à la table des matières](#bienvenue)
+<br>
+
+Dès à présent vous pouvez utiliser Git sur la plateforme de dépôts distants de votre choix et collaborer pour travailler cette fameuse boucle connectée!
+<br>
+<br>
+![boucleConnecte](./images/gitCommandFlow_connectedLoop.png)
