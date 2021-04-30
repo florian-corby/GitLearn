@@ -4,7 +4,7 @@ Cette page web est destinée à vous proposer une série d'exercices en accompag
 
 Le module 0 de présentation des VCS étant un module très théorique je n'ai pas vraiment de manipulation technique à proposer. Il s'agit essentiellement de bien comprendre les notions de versionnement, de branches de versions (avec tout ce que ça implique: les fusions de branches, etc.) et de conflits.
 
-Une fois que ce module 0 aura été bien compris, téléchargez et installez Git Bash (utilisateurs Windows) ou Git (utilisateurs Linux) en suivant ce [lien vers le site officiel de Git](https://git-scm.com/) et rejoignez-nous ici!
+Une fois que ce module 0 aura été bien compris, téléchargez et installez Git Bash (utilisateurs Windows) ou Git (utilisateurs Linux) en suivant ce [lien vers le site officiel de Git](https://git-scm.com/) ou pour celles/ceux qui veulent la version portable Windows [ce lien](https://git-scm.com/download/win) et rejoignez-nous ici!
 
 <br>
 
@@ -42,7 +42,7 @@ Une fois que ce module 0 aura été bien compris, téléchargez et installez Git
 Dans Windows ouvrez Git Bash ou un terminal de commande sous Linux (Ctrl + Alt + T). Vous devriez obtenir une fenêtre similaire à celle-ci:
 ![GitBash1](./images/interlude/gitBash1.png)
 
-Notez la tilde bleue ~. Cette tidle signifie "HOME" sous Linux. C'est votre dossier HOME. Sous Windows vous aurez probablement un chemin absolu ressemblant à C:\mon\chemin\vers\home.
+Notez la tilde bleue ~. Cette tidle signifie "HOME" sous Linux. C'est votre dossier HOME. Sous Windows vous aurez probablement un chemin absolu ressemblant à C:\Users\nomUtilisateur\ pour le dossier HOME.
 
 Vous allez apprendre à vous déplacer dans l'arborescence de vos fichiers dans un terminal. C'est une compétence essentielle pour apprendre Git. En effet, pour utiliser Git sur votre projet il faut vous rendre là où se trouve votre projet. Heureusement deux commandes suffisent à atteindre n'importe quel dossier d'une arborescence.
 
@@ -67,8 +67,12 @@ Pour revenir au dossier précédent entez `cd -`, pour remonter d'un dossier par
 - Revenez au dossier précédent avec `cd -`
 - Remontez dans le dossier parent avec `cd ..`
 - Remontez au 3ième dossier parent avec `cd ../../../`
+- Allez dans le dossier C:\ (cf. `cd /c` dans git bash)
+- Allez dans le dossier /
+- Allez dans le dossier ~
 
 <ins>Note:</ins> Si par malheur un de vos dossier commence par le caractère "-" vous pouvez échapper à votre funeste sort en "échappant" le tiret par un antislash, comme ceci: `cd \-nomDossierAvecTiret`.
+
 <br>
 <br>
 <hr>
@@ -79,7 +83,7 @@ Pour revenir au dossier précédent entez `cd -`, pour remonter d'un dossier par
 ### Git : mode d'emploi pour un usage seul, sans dépôt distant, sur une seule branche <a id="git1"></a>
 [Retour à la table des matières](#bienvenue)
 
-Nous rentrons maintenant dans le vif du sujet. Tout ce que nous avons fait avant était pour nous préparer théoriquement et maintenant vous êtes fin prêt à la pratique!
+Nous rentrons maintenant dans le vif du sujet. Tout ce que nous avons fait avant était pour nous préparer théoriquement et avoir les bons outils. Maintenant on passe à la pratique!
 
 <br>
 
@@ -133,7 +137,7 @@ Nous allons travailler cette boucle sur un projet test.
 - Faites votre premier commit
 - Relancez un `git status` et lisez le message
 
-Comme vous pouvez déjà le constater la commande `git status` est une commande __très__ utilisée! Elle vous permet de savoir quels fichiers sont suivis ou non, lesquels sont ajoutés au staging ou non, etc. Utilisez-la autant que possible!
+Comme vous pouvez déjà le constater la commande `git status` est une commande __très__ utilisée! Elle vous permet de savoir quels fichiers sont suivis ou non, lesquels sont ajoutés au staging ou non, etc. __Utilisez-la autant que possible!__
 
 ###### Exercice
 - Admirez votre premier commit avec la commande `git log`
@@ -144,13 +148,13 @@ Comme vous pouvez déjà le constater la commande `git status` est une commande 
 - Retirez test2.txt du suivi des modifications avec la commande `git rm --cached test2.txt`
 - Faites un commit puis un `git status`. Que constatez-vous?
 
-La commande `git rm --cached <nomFichier>` n'est pas la commande que vous utiliserez le plus mais elle est très utile dès lors qu'on veut retirer un fichier du suivi comme un fichier binaire inutile, un fichier trop lourd (500Mo) pour être partagé, etc.
+La commande `git rm --cached <nomFichier>` n'est pas la commande que vous utiliserez le plus mais elle est très utile dès lors qu'on veut retirer un fichier du suivi comme un fichier binaire inutile, un fichier trop lourd (500Mo) pour être partagé via Git, etc.
 
 Vous remarquerez également un problème: tant qu'on n'a pas dit à Git d'ignorer le fichier test2.txt on ne pourra pas utiliser la commande `git add -A` qui est pourtant bien pratique.
 
 Pour dire à git d'ignorer ce fichier on va créer un fichier .gitignore.
 
-:warning: Le nom du fichier est obligatoirement __.gitignore__. Ce n'est pas .gitignore.txt ou gitignore. Le "." devant le nom du fichier indique qu'il s'agit d'un fichier caché. Pour les utilisateurs Windows: vous devrez activer l'option d'affichage des fichiers cachés. De plus, vous devrez vous assurer qu'aucune extension automatique .txt ne s'est ajoutée et l'éliminer si c'est le cas!
+:warning: Le nom du fichier est obligatoirement __.gitignore__. Ce n'est pas .gitignore.txt ou gitignore. Le "." devant le nom du fichier indique qu'il s'agit d'un fichier caché (sous Linux). Pour les utilisateurs Windows: vous devrez peut-être activer l'option d'affichage des fichiers cachés. De plus, vous devrez vous assurer qu'aucune extension automatique .txt ne s'est ajoutée et l'éliminer si c'est le cas!
 
 ###### Exercice
 - Créez le fichier .gitignore
@@ -232,6 +236,7 @@ On continue avec la suppression de modifications en cours:
 - Faites un ou deux commits
 - Utilisez la commande `git reset --hard <id>` pour faire disparaître ces deux commits inutiles
 - Quelle est la différence avec `git revert <id>^..HEAD` ? Quel peut être l'intérêt de `git reset --hard <id>` ? Comment peut-on s'assurer qu'on ne supprime rien d'important?
+
 <br>
 <br>
 <hr>
@@ -260,11 +265,11 @@ Les branches ont un intérêt majeur dans Git car elles permettent de programmer
 - Consultez les fichiers précédentes et faites un `git log`. Que constatez-vous?
 - Supprimez la branche que vous aviez créé
 
-
+<br>
 
 #### Utiliser la remise <a id="remise"></a>
 
-La remise permet d'enregistrer du travail en cours tout en éviter de "commiter" celle-ci. Elle est très pratique dès qu'on veut utiliser une commande qui nécessite un répertoire de travail "propre" (ie. qui corresponde au tout dernier commit), comme un `git revert` ou encore un changement de branche.
+La remise permet d'enregistrer du travail en cours tout en évitant de "commiter" celle-ci. Elle est très pratique dès qu'on veut utiliser une commande qui nécessite un répertoire de travail "propre" (ie. qui corresponde au tout dernier commit), comme un `git revert` ou encore un changement de branche.
 
 ###### Exercice
 - Créez une branche de développement nommée "dev" (ne passez pas dessus pour l'instant!)
@@ -275,7 +280,7 @@ La remise permet d'enregistrer du travail en cours tout en éviter de "commiter"
 - Sortez vos modifications de la remise
 - Si ce n'est pas déjà fait, videz la remise
 
-
+<br>
 
 #### La boucle locale de travail multi-branches <a id="boucle_multiBranches"></a>
 
@@ -290,6 +295,7 @@ On va ici illustrer une boucle classique de travail avec des branches locales:
 - Éditez un fichier et committez (2 ou 3 commits suffiront)
 - Revenez sur votre branche principale et fusionnez
 - Revenez sur votre branche de développement et codez
+
 <br>
 <br>
 <hr>
@@ -303,18 +309,21 @@ On va ici illustrer une boucle classique de travail avec des branches locales:
 
 #### Démarrer sur un clone <a id="clone"></a>
 
-Quand vous clonez un projet vous êtes positionné directement sur la branche principale. Comme nous l'avons vu il faut cependant éviter de travailler directement sur la branche principale...
+Quand vous clonez un projet vous êtes positionné directement sur la branche principale. Cependant comme nous l'avons vu il faut éviter de travailler directement sur la branche principale.
 
 ###### Exercice
 - Clonez la [copie de GitLearn](https://github.com/AutoDiLab/GitLearn)
 - Depuis le clone (et dans Git) listez toutes les branches distantes du clone
 - Démarrez votre travail directement sur une de ces branches distantes
 
+<br>
+
 #### Créer une branche distante <a id="creation_brancheDist"></a>
 
 ###### Exercice
-- Appliquez la procédure indiquée dans les diapos pour créer une nouvelle branche distante
+- Appliquez la procédure indiquée dans les diapos pour une nouvelle branche distante ayant le même nom que votre branche locale
 
+<br>
 
 #### Configurer un suivi de branche distante <a id="config_brancheDist"></a>
 
@@ -324,6 +333,7 @@ Quand vous clonez un projet vous êtes positionné directement sur la branche pr
 - Configurez votre branche locale de façon à ce qu'elle suive cette branche distante
 - Faites quelques éditions/commits et essayez de "pusher" vos changements sur une autre branche distante que la vôtre.
 - Arrêtez le suivi de la branche distante et essayez de "pusher" de nouveau. Que constatez-vous?
+
 <br>
 <br>
 <hr>
@@ -337,19 +347,21 @@ Quand vous clonez un projet vous êtes positionné directement sur la branche pr
 #### Les interdictions de Push <a id="interdiction_push"></a>
 
 ###### Exercice
-- Choisissez un coéquipier pour qu'il édite un fichier, commit et push ce changement sur le dépôt distant
+- Choisissez un coéquipier pour qu'il édite un fichier, qu'il commit et push ce changement sur le dépôt distant
 - Éditez maintenant un fichier, committez et pushez vos changements
 - Pourquoi ne pouvez-vous pas pusher vos changements? Est-il possible de provoquer cette situation seul?
 
+<br>
 
 #### Gestion des conflits d'édition <a id="conflits"></a>
 
 ###### Exercice
-- Choisissez un coéquipier pour qu'il édite un fichier, commit et push ce changement sur le dépôt distant
+- Choisissez un coéquipier pour qu'il édite un fichier, qu'il commit et push ce changement sur le dépôt distant
 - Éditez maintenant un fichier __au même endroit__ que votre coéquipier, committez et récupérez les changements de votre coéquipier
 - Que se passe-t-il? Pourquoi Git ne peut-il pas résoudre ce problème automatiquement? Comment le résoud-t-on?
 - Une fois que le problème est résolu, committez et pushez vos changements
 - Demandez à votre coéquipier de récupérer les changements et de revenir l'historique des versions et le contenu du fichier édité. Que constate-t-il?
+
 <br>
 <br>
 <hr>
