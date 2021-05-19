@@ -125,15 +125,13 @@ Par défaut Git ouvrira l'éditeur de texte Vim ou Nano lorsque vous écrirez le
 Pour changer d'éditeur vous pouvez suivre les instructions de cette adresse : \url{https://git-scm.com/book/fr/v2/Commandes-Git-Installation-et-configuration}\\
 \medskip
 
-\underline{Exemple:} git config --global core.editor "'C:\textbackslash Program Files (x86)\textbackslash Windows NT\textbackslash Accessories\textbackslash wordpad.exe'"\\
+\underline{Exemple:} git config $--$global core.editor "'C:\textbackslash Program Files (x86)\textbackslash Windows NT\textbackslash Accessories\textbackslash wordpad.exe'"\\
 \medskip
 
 \textbf{IMPORTANT:} Remarquez dans cet exemple que les guillemets " entourent les simple quotes ' 
 \end{frame}
 
-\begin{frame}
-\frametitle{Les alias de commandes}
-
+\begin{frame}{Les alias de commandes}
 \underline{Quelques alias recommandés:}
 \begin{itemize} 
     \item[] git config $--$global alias.co checkout
@@ -142,23 +140,37 @@ Pour changer d'éditeur vous pouvez suivre les instructions de cette adresse : \
     \item[] git config $--$global alias.st status
 \end{itemize}
 \medskip
+\underline{Un autre alias utile:}\\
+git config $--$global alias.dog "log $--$all $--$decorate 
+    											$--$oneline $--$graph"
+\end{frame}
 
+\begin{frame}{Lister et Supprimer des configurations}
 \underline{Lister toutes ses clefs de configuration:}
 \begin{itemize}
     \item[] git config $--$list
 \end{itemize}
 \medskip
-
+\underline{Supprimer une configuration associée à une clef:}
+\begin{itemize}
+    \item[] git config $--$global $--$unset <clef>
+    \footnote[frame]{Exemples:
+    	\begin{itemize}
+    	\item[] \textit{git config $--$global $--$unset core.editor}
+    	\item[] \textit{git config $--$global $--$unset alias.st}
+		\end{itemize}}
+\end{itemize}
+\medskip
 \underline{Lister toutes les clefs de configuration possibles de Git:}
 \begin{itemize}
     \item[] git help $--$config
 \end{itemize}
+
 \end{frame}
 
 % Subsection:
 \subsection{Initialiser le suivi des modifications ou cloner un projet}
-\begin{frame}[fragile]
-\frametitle{Commande: git init}
+\begin{frame}[fragile]{Commande: git init}
 La commande "git init" crée le dossier caché .git/ contenant tous les fichiers dont Git a besoin pour offrir ses services:
 
     \begin{mdframed}[style=Bash]
@@ -349,18 +361,20 @@ La commande \textit{git commit} admet plusieurs options et syntaxes:
 	      ce qui était dans le staging area
 	\item git commit -m "..." => enregistre ce qui était dans le staging area avec le 
 	      message passé en paramètre
-	\item git commit -a => combinaison \textit{git add -A} et \textit{git commit}
+	\item git commit -a => combinaison\footnote[frame]{Exception faite que les fichiers non suivis ne seront pas commités ici!} \textit{git add -A} et \textit{git commit}
 	\item git commit -am "..." => combinaison \textit{git add -A} et \textit{git commit -m "..."}
 \end{itemize}
 \end{frame}
 
 
 \begin{frame}{Commande git commit $--$amend}
-Du fait de l'importance de ces commits et des messages qui y sont associés, Git fournit un moyen de corriger le message du dernier commit (et uniquement \underline{le message} du dernier commit) grâce à l'option \textit{$--$amend}:
+Du fait de l'importance de ces commits et des messages qui y sont associés, Git fournit un moyen de corriger le dernier commit grâce à l'option \textit{$--$amend}:
 \begin{center}
 	\includegraphics[scale=0.2]{gitCommitAmend.png}
 \end{center}
-\end{frame}
+\underline{NB:} Il n'est possible de corriger que le dernier commit.\\
+\underline{NB2:} Par corriger on sous-entend "corriger le message" ou bien "ajouter d'autres changements au dernier commit".
+\end{frame} 
 
 
 
@@ -561,7 +575,7 @@ Retirez le "\string^" pour obtenir l'intervalle ]<older\_id>; HEAD]
 \section{Supprimer des changements ou des versions}
 
 % Subsection:
-\subsection{Supprimer définitivement des changements sur un seul fichier}
+\subsection{Supprimer des changements sur un seul fichier}
 \begin{frame}{git restore <file>}
 Permet de restaurer un seul fichier à l'état de son dernier commit.\\
 \medskip
@@ -574,7 +588,7 @@ Le lendemain matin vous reprenez votre code et il est truffé de bug. Vous voule
 
 
 % Subsection:
-\subsection{Supprimer définitivement des changements sur tous les fichiers}
+\subsection{Supprimer des changements sur tous les fichiers}
 \begin{frame}{Commande: git reset $--$hard (sans paramètre)}
 La commande \textit{git reset $--$hard} sans paramètre permet d'annuler tous les changements en cours dans votre dossier de travail. L'historique des modifications n'est pas touché!\\
 \medskip
@@ -584,7 +598,7 @@ C'est une façon très pratique de repartir de 0 quand on n'est pas satisfait de
 
 
 % Subsection:
-\subsection{Supprimer définitivement des versions}
+\subsection{Supprimer des versions}
 \begin{frame}{Commande: git reset $--$hard <numero\_commit>}
 La commande \textit{git reset $--$hard <numero\_commit>} permet d'annuler tous les commits qui ont été faits après le commit spécifié et de faire revenir ses fichiers à l'état du commit spécifié.
 \medskip

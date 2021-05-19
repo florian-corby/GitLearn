@@ -138,19 +138,24 @@ Comme souvent en informatique (voire en ingénieurie ou encore... La vie?) on é
 % Subsection:
 \subsection{Naviguer dans le terminal}
 
-\begin{frame}[fragile]
-\frametitle{Naviguer dans une arborescende de fichiers}
-
+\begin{frame}[fragile]{Naviguer dans une arborescence de fichiers}
 Un terminal de commande nous place à un endroit de notre arborescence des fichiers qu'il appelle \$HOME ou encore '$\sim$'. Depuis cet endroit il est possible de se déplacer dans l'arborescence de fichiers en utilisant deux commandes, 'ls' et 'cd':\\
 
 \begin{itemize}
     \item ls => \textbf{L}i\textbf{S}te les dossiers et fichiers à l'endroit où vous vous trouvez dans l'arborescence
     \item cd <nom\_du\_dossier> => \textbf{C}hanger de \textbf{D}ossier vers le dossier indiqué
     \item cd .. => remonter d'un dossier dans l'arborescence
-    \item cd ../../ => remonter de deux dossiers dans l'arborescence (etc.)
+    \item cd ../../ => remonter de deux dossiers
     \item cd - => revenir au dossier précédent
+    \item cd /c => Aller dans le dossier C:\textbackslash
 \end{itemize}
+\end{frame}
 
+\begin{frame}{Copier-coller et chemins Windows}
+Les traditionnels raccourcis "Ctrl+C, Ctrl+V" ne marchent pas dans un terminal Bash (ils ont une autre signification pour Bash). Le raccourci dépend de votre système (Ctrl+Insert et Shift+Insert pour certaines personnes.) Ce qui marchera toujours c'est un clic droit + copier ou coller.\\
+\bigskip
+
+\textbf{IMPORTANT:} Entourez tous vos chemins Windows de guillemets dans Bash! Exemple: \textit{ls "C:\textbackslash mon\textbackslash super\textbackslash chemin"}
 \end{frame}
 
 % Subsection:
